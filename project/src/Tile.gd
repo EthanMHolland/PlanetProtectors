@@ -16,7 +16,7 @@ func _physics_process(_delta):
 func _place_tower():
 	if (Input.is_action_just_pressed("place_tower") and _mouse_overlapping == true):
 		if !_has_tower:
-			if level._money > 0:
+			if level._money >= 10:
 				var _new_tower = laser_tower.instance()
 				_new_tower.position = Vector2(0,0)
 				self.add_child(_new_tower)

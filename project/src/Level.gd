@@ -8,9 +8,11 @@ var _asteroids_destroyed : int
 var _wave : int = 0
 var _total_asteroids_destroyed : int
 var _money : int = 10
+var _new_asteroid_speed : int = -50
 
 var _rng := RandomNumberGenerator.new()
 var _asteroid := preload("Asteroid.tscn")
+
 
 
 
@@ -33,6 +35,7 @@ func _process(_delta):
 func _wave_start():
 	_wave += 1
 	print("Begin wave: " + str(_wave))
+	_new_asteroid_speed -= 10*_wave
 # warning-ignore:narrowing_conversion
 # Ignored because we want to only spawn integers of asteroids, so we must round and lose precision
 	_asteroids_this_wave = round(BASE_ASTEROID_AMOUNT + (pow(_wave, 2) * BASE_ASTEROID_AMOUNT/10))
@@ -59,6 +62,7 @@ func _spawn_asteroid():
 	elif _spawn_location == 4:
 		_new_asteroid.global_position = $SpawnPoint5.global_position
 	_new_asteroid.connect("destroyed", self, "_on_AsteroidDestroyed")
+	_new_asteroid.speed = _new_asteroid_speed
 	_asteroids_left -= 1
 
 

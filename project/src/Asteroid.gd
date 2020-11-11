@@ -2,17 +2,20 @@ extends KinematicBody2D
 
 signal destroyed
 
-const SPEED := -50
+var speed := -50
 
 var _velocity := Vector2()
 
 
 func _physics_process(_delta):
 	var _direction := Vector2(-1, 0)
-	_velocity.x = SPEED
+	_velocity.x = speed
 	
 	_velocity = move_and_slide(_velocity, Vector2(-1, 0))
 
+
+func set_speed():
+	print("meow")
 
 func _on_Hitbox_body_entered(body):
 	if body.is_in_group("Laser"):
