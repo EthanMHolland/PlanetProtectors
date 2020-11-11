@@ -7,6 +7,7 @@ var _asteroids_left : int
 var _asteroids_destroyed : int
 var _wave : int = 0
 var _total_asteroids_destroyed : int
+var _money : int = 10
 
 var _rng := RandomNumberGenerator.new()
 var _asteroid := preload("Asteroid.tscn")
@@ -22,7 +23,7 @@ func _process(_delta):
 		$SpawnerTimer.stop()
 	_check_asteroids_left()
 	$AsteroidsLeft.text = "Left: " + str(_asteroids_this_wave - _asteroids_destroyed)
-	$Score.text = "Score: " + str(_total_asteroids_destroyed)
+	$Money.text = "$" + str(_money)
 	$Wave.text = "Wave: " + str(_wave)
 	
 	if _wave >= 16:
@@ -79,8 +80,11 @@ func _on_BetweenWavesTimer_timeout():
 func _on_AsteroidDestroyed():
 	_asteroids_destroyed += 1
 	_total_asteroids_destroyed += 1
+	_money += 10
+	
 
 
 func _on_Planet_area_entered(area):
 	if area.is_in_group("Asteroid"):
 		var _change_scene = get_tree().change_scene("res://src/EndScreen.tscn")
+

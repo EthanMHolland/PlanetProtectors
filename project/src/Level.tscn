@@ -203,7 +203,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Score" type="Label" parent="."]
+[node name="Money" type="Label" parent="."]
 margin_left = 520.0
 margin_top = 5.0
 margin_right = 632.0
