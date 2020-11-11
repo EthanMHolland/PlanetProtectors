@@ -3,20 +3,17 @@ extends KinematicBody2D
 signal destroyed
 
 var speed := -50
-
 var _velocity := Vector2()
 
 
 func _physics_process(_delta):
+#sets the direction of the asteroids
 	var _direction := Vector2(-1, 0)
 	_velocity.x = speed
-	
 	_velocity = move_and_slide(_velocity, Vector2(-1, 0))
 
 
-func set_speed():
-	print("meow")
-
+#detects when a laser hit the asteroids and deletes the asteroid/laser and emits "destroyed"
 func _on_Hitbox_body_entered(body):
 	if body.is_in_group("Laser"):
 		emit_signal("destroyed")
@@ -24,6 +21,7 @@ func _on_Hitbox_body_entered(body):
 		body.queue_free()
 
 
+#detects when the asteroids hits a tower and deletes the asteroid and emits "destroyed"
 func _on_Hitbox_area_entered(area):
 	if area.is_in_group("Tower"):
 		emit_signal("destroyed")

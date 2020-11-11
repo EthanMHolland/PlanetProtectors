@@ -15,12 +15,14 @@ var _asteroid := preload("Asteroid.tscn")
 
 
 
-
+#starts initial wave and money timer
 func _ready():
 	_wave_start()
 	$IncreaseMoney.start()
 	
 
+
+#checks if all asteroids have been spawned and updates HUD info
 func _process(_delta):
 	if(_asteroids_left == 0):
 		$SpawnerTimer.stop()
@@ -32,6 +34,8 @@ func _process(_delta):
 	if _wave >= 16:
 		var _change_scene = get_tree().change_scene("res://src/WinScreen.tscn")
 
+
+#Starts the next wave
 func _wave_start():
 	_wave += 1
 	print("Begin wave: " + str(_wave))
@@ -42,9 +46,8 @@ func _wave_start():
 	_asteroids_left = _asteroids_this_wave
 	$SpawnerTimer.start()
 
-	
 
-
+#spawns asteroids and randomly chooses their spawn row
 func _spawn_asteroid():
 	_rng.randomize()
 	var _spawn_location = round(_rng.randf_range(0,4))
@@ -61,11 +64,15 @@ func _spawn_asteroid():
 		_new_asteroid.global_position = $SpawnPoint4.global_position
 	elif _spawn_location == 4:
 		_new_asteroid.global_position = $SpawnPoint5.global_position
+
+#connects the destroyed signal from Asteroid.gd to this script
 	_new_asteroid.connect("destroyed", self, "_on_AsteroidDestroyed")
 	_new_asteroid.speed = _new_asteroid_speed
+	
 	_asteroids_left -= 1
 
 
+#checks if all asteroids this wave have been destroyed and if so, starts between wave timer
 func _check_asteroids_left():
 	if (_asteroids_destroyed >= _asteroids_this_wave and $BetweenWavesTimer.time_left == 0):
 		_asteroids_destroyed = 0
@@ -89,6 +96,7 @@ func _on_AsteroidDestroyed():
 	
 
 
+#if an asteroid hits the planet then it ends the game
 func _on_Planet_area_entered(area):
 	if area.is_in_group("Asteroid"):
 		var _change_scene = get_tree().change_scene("res://src/EndScreen.tscn")
