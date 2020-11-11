@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 signal destroyed
 
-const SPEED := -100
+const SPEED := -50
 
 var _velocity := Vector2()
 

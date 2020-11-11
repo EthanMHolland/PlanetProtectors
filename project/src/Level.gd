@@ -16,6 +16,7 @@ var _asteroid := preload("Asteroid.tscn")
 
 func _ready():
 	_wave_start()
+	$IncreaseMoney.start()
 	
 
 func _process(_delta):
@@ -80,7 +81,7 @@ func _on_BetweenWavesTimer_timeout():
 func _on_AsteroidDestroyed():
 	_asteroids_destroyed += 1
 	_total_asteroids_destroyed += 1
-	_money += 10
+	_money += 2
 	
 
 
@@ -88,3 +89,8 @@ func _on_Planet_area_entered(area):
 	if area.is_in_group("Asteroid"):
 		var _change_scene = get_tree().change_scene("res://src/EndScreen.tscn")
 
+
+
+func _on_IncreaseMoney_timeout():
+	_money += 2
+	$IncreaseMoney.start()
