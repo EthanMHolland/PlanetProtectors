@@ -6,6 +6,10 @@ var speed := -50
 var _velocity := Vector2()
 
 
+func _process(delta):
+	if Input.is_action_just_pressed("increase_wave"):
+		queue_free()
+
 func _physics_process(_delta):
 #sets the direction of the asteroids
 	var _direction := Vector2(-1, 0)

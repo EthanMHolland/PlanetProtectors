@@ -34,6 +34,16 @@ func _process(_delta):
 	if _wave >= 16:
 		var _change_scene = get_tree().change_scene("res://src/WinScreen.tscn")
 
+	if Input.is_action_just_pressed("add_funds"):
+		_money += 10
+
+	if Input.is_action_just_pressed("stop_asteroid_spawning"):
+		_asteroids_left = 0
+
+	if Input.is_action_just_pressed("increase_wave"):
+		_wave_start()
+	
+
 
 #Starts the next wave
 func _wave_start():
