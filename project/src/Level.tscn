@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/background.png" type="Texture" id=1]
 [ext_resource path="res://src/Tile.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/asteroid.png" type="Texture" id=5]
 [ext_resource path="res://assets/Xolonium-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://assets/sounds/game.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/sounds/asteroid_explode.wav" type="AudioStream" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -231,6 +232,10 @@ wait_time = 2.0
 
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 7 )
+volume_db = -10.0
+
+[node name="AsteroidExplodeSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
 volume_db = -10.0
 [connection signal="area_entered" from="Planet" to="." method="_on_Planet_area_entered"]
 [connection signal="timeout" from="BetweenWavesTimer" to="." method="_on_BetweenWavesTimer_timeout"]

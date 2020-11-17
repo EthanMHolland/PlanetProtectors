@@ -101,6 +101,7 @@ func _on_BetweenWavesTimer_timeout():
 
 	
 func _on_AsteroidDestroyed():
+	$AsteroidExplodeSound.play()
 	_asteroids_destroyed += 1
 	_total_asteroids_destroyed += 1
 	_money += 2
