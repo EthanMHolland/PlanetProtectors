@@ -6,7 +6,7 @@
 [ext_resource path="res://src/Level.gd" type="Script" id=4]
 [ext_resource path="res://assets/asteroid.png" type="Texture" id=5]
 [ext_resource path="res://assets/Xolonium-Regular.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://assets/sounds/game.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/sounds/game.ogg" type="AudioStream" id=7]
 [ext_resource path="res://assets/sounds/asteroid_explode.wav" type="AudioStream" id=8]
 
 [sub_resource type="DynamicFont" id=1]
