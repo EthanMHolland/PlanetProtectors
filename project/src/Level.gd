@@ -17,6 +17,7 @@ var _asteroid := preload("Asteroid.tscn")
 
 #starts initial wave and money timer
 func _ready():
+	$BackgroundMusic.play()
 	_wave_start()
 	$IncreaseMoney.start()
 	
