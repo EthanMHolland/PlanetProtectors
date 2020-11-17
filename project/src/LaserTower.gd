@@ -31,6 +31,7 @@ func _on_ShootTimer_timeout():
 
 #spawns a new laser beam, sets its position, and restarts the timer
 func _shoot_laser():
+	$LaserShootSound.play()
 	var _new_laser = LASER.instance()
 	add_child(_new_laser)
 	_new_laser.global_position = $Position2D.global_position
