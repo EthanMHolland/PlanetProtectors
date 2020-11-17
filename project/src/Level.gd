@@ -48,6 +48,7 @@ func _process(_delta):
 
 #Starts the next wave
 func _wave_start():
+	$NewWaveSound.play()
 	_wave += 1
 	print("Begin wave: " + str(_wave))
 	_new_asteroid_speed -= 10*_wave
