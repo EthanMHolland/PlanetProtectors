@@ -15,7 +15,7 @@ func _physics_process(_delta):
 	var _direction := Vector2(-1, 0)
 	_velocity.x = speed
 	_velocity = move_and_slide(_velocity, Vector2(-1, 0))
-
+	rotation -= 0.01
 
 #detects when a laser hit the asteroids and deletes the asteroid/laser and emits "destroyed"
 func _on_Hitbox_body_entered(body):
