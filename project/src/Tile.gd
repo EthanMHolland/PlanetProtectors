@@ -34,6 +34,7 @@ func _place_tower():
 
 func _on_tower_destroyed():
 	_has_tower = false
+	$TowerDestroyedSound.play()
 
 
 func _on_Tile_mouse_entered():
