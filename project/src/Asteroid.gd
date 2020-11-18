@@ -6,7 +6,7 @@ var speed := -50
 var _velocity := Vector2()
 
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("increase_wave"):
 		queue_free()
 

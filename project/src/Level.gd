@@ -1,5 +1,6 @@
 extends Node2D
 
+
 const BASE_ASTEROID_AMOUNT := 3
 
 var _asteroids_this_wave : int
@@ -12,6 +13,7 @@ var _new_asteroid_speed : int = -50
 
 var _rng := RandomNumberGenerator.new()
 var _asteroid := preload("Asteroid.tscn")
+var _shooting_star := preload("ShootingStar.tscn")
 
 
 
@@ -21,6 +23,7 @@ func _ready():
 	_wave_start()
 	$IncreaseMoney.start()
 	
+	$ShootingStarTimer.start()
 
 
 #checks if all asteroids have been spawned and updates HUD info
@@ -119,3 +122,31 @@ func _on_Planet_area_entered(area):
 func _on_IncreaseMoney_timeout():
 	_money += 2
 	$IncreaseMoney.start()
+
+func _spawn_shooting_star():
+	# Choose a random location on Path2D.
+	$StarPath/StarSpawnLocation.offset = randi()
+	# Create a Mob instance and add it to the scene.
+	var _new_star = _shooting_star.instance()
+	add_child(_new_star)
+	# Set the mob's direction perpendicular to the path direction.
+	var direction = $StarPath/StarSpawnLocation.rotation + PI / 2
+	# Set the mob's position to a random location.
+	_new_star.position = $StarPath/StarSpawnLocation.position
+	# Add some randomness to the direction.
+	direction += rand_range(-PI / 4, PI / 4)
+	_new_star.rotation = direction
+	# Set the velocity (speed & direction).
+	_new_star.linear_velocity = Vector2(rand_range(_new_star.min_speed, _new_star.max_speed), 0)
+	_new_star.linear_velocity = _new_star.linear_velocity.rotated(direction)
+	_new_star.connect("star_grabbed", self, "_on_star_grabbed")
+
+
+func _on_ShootingStarTimer_timeout():
+	_spawn_shooting_star()
+	$ShootingStarTimer.set_wait_time(rand_range(10, 25))
+	$ShootingStarTimer.start()
+
+
+func _on_star_grabbed():
+	_money += 10
