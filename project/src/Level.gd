@@ -1,5 +1,6 @@
 extends Node2D
 
+signal paused
 
 const BASE_ASTEROID_AMOUNT := 3
 
@@ -46,7 +47,8 @@ func _process(_delta):
 
 	if Input.is_action_just_pressed("increase_wave"):
 		_wave_start()
-	
+	if Input.is_action_just_pressed("pause"):
+		emit_signal("paused")
 
 
 #Starts the next wave
@@ -150,3 +152,19 @@ func _on_ShootingStarTimer_timeout():
 
 func _on_star_grabbed():
 	_money += 10
+
+
+func _on_Level_paused():
+	get_tree().paused = true
+	$PauseMenu.show()
+
+
+func _on_ResumeButton_button_down():
+	print("hello")
+	$PauseMenu.hide()
+	get_tree().paused = false
+
+
+func _on_MainMenuButton_button_down():
+	get_tree().paused = false
+	var _change_scene = get_tree().change_scene("res://src/TitleScreen.tscn")

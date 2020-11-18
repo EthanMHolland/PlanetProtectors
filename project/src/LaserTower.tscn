@@ -31,7 +31,6 @@ extents = Vector2( 7.95908, 8.01494 )
 "Tower",
 ]]
 scale = Vector2( 3, 3 )
-z_index = 4
 z_as_relative = false
 input_pickable = false
 script = ExtResource( 2 )
