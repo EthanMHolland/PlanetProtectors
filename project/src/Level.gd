@@ -11,6 +11,7 @@ var _wave : int = 0
 var _total_asteroids_destroyed : int
 var _money : int = 10
 var _new_asteroid_speed : int = -50
+var _earth_health : int = 4
 
 var _rng := RandomNumberGenerator.new()
 var _asteroid := preload("Asteroid.tscn")
@@ -114,10 +115,13 @@ func _on_AsteroidDestroyed():
 	
 
 
-#if an asteroid hits the planet then it ends the game
+#if an asteroid hits the planet 5 times then it ends the game
 func _on_Planet_area_entered(area):
 	if area.is_in_group("Asteroid"):
-		var _change_scene = get_tree().change_scene("res://src/EndScreen.tscn")
+		area.get_parent().queue_free()
+		_earth_health -= 1
+		if _earth_health == 0:
+			var _change_scene = get_tree().change_scene("res://src/EndScreen.tscn")
 
 
 
