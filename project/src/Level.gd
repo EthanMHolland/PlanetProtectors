@@ -164,8 +164,8 @@ func _on_Level_paused():
 
 
 func _on_ResumeButton_button_down():
-	print("hello")
 	$PauseMenu.hide()
+	$BackgroundMusic.volume_db = $PauseMenu/MusicSlider.value
 	get_tree().paused = false
 
 

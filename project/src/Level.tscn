@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/background.png" type="Texture" id=1]
 [ext_resource path="res://src/Tile.tscn" type="PackedScene" id=2]
@@ -33,6 +33,10 @@ size = 50
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 25
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=7]
@@ -269,6 +273,7 @@ wait_time = 10.0
 
 [node name="PauseMenu" type="Popup" parent="."]
 pause_mode = 2
+visible = true
 margin_left = 262.0
 margin_top = 40.0
 margin_right = 762.0
@@ -311,6 +316,46 @@ text = "MAIN MENU"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="MusicSlider" type="HSlider" parent="PauseMenu"]
+margin_left = 100.0
+margin_top = 360.0
+margin_right = 400.0
+margin_bottom = 376.0
+min_value = -50.0
+max_value = 0.0
+value = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFXSlider" type="HSlider" parent="PauseMenu"]
+margin_left = 100.0
+margin_top = 420.0
+margin_right = 400.0
+margin_bottom = 436.0
+value = 100.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicLabel" type="Label" parent="PauseMenu"]
+margin_left = 200.0
+margin_top = 330.0
+margin_right = 300.0
+margin_bottom = 361.0
+custom_fonts/font = SubResource( 8 )
+text = "Music"
+align = 1
+
+[node name="SFXLabel" type="Label" parent="PauseMenu"]
+margin_left = 200.0
+margin_top = 390.0
+margin_right = 300.0
+margin_bottom = 421.0
+custom_fonts/font = SubResource( 8 )
+text = "SFX"
+align = 1
 
 [node name="Button" type="Button" parent="."]
 margin_left = 930.0
