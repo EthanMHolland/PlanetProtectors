@@ -172,3 +172,7 @@ func _on_ResumeButton_button_down():
 func _on_MainMenuButton_button_down():
 	get_tree().paused = false
 	var _change_scene = get_tree().change_scene("res://src/TitleScreen.tscn")
+
+
+func _on_Button_button_down():
+	_on_Level_paused()
