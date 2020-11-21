@@ -1,6 +1,7 @@
 extends Node2D
 
 signal paused
+signal sfxvolume
 
 const BASE_ASTEROID_AMOUNT := 3
 
@@ -168,6 +169,7 @@ func _on_ResumeButton_button_down():
 	$BackgroundMusic.volume_db = $PauseMenu/MusicSlider.value
 	$AsteroidExplodeSound.volume_db = $PauseMenu/SFXSlider.value
 	$NewWaveSound.volume_db = $PauseMenu/SFXSlider.value
+	emit_signal("sfxvolume", $PauseMenu/SFXSlider.value)
 	get_tree().paused = false
 
 

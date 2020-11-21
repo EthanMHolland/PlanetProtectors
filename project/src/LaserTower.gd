@@ -1,12 +1,13 @@
 extends Area2D
 
-signal tower_destroyed
+#signal tower_destroyed
 
 const LASER = preload("Laser.tscn")
 
 var _bar_red = preload("res://assets/barHorizontal_red.png")
 var _bar_green = preload("res://assets/barHorizontal_green.png")
 var _bar_yellow = preload("res://assets/barHorizontal_yellow.png")
+
 
 var _health := 3
 var _shots_left := 15
@@ -18,10 +19,6 @@ func _ready():
 
 func _process(_delta):
 	_check_health()
-#deletes tower if health is 0 or below
-#	if _health <= 0:
-#		emit_signal("tower_destroyed")
-#		queue_free()
 
 #deletes tower if amount of shots left is 0 or below
 	if _shots_left <= 0:

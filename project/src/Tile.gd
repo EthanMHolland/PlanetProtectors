@@ -44,4 +44,3 @@ func _on_Tile_mouse_entered():
 
 func _on_Tile_mouse_exited():
 	_mouse_overlapping = false
-
