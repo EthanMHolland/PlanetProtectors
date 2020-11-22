@@ -2,15 +2,15 @@ extends Area2D
 
 signal tower_destroyed
 
-const LASER = preload("Laser.tscn")
+const LASER := preload("Laser.tscn")
 
-var _bar_red = preload("res://assets/healthbar_red.png")
-var _bar_green = preload("res://assets/healthbar_green.png")
-var _bar_yellow = preload("res://assets/healthbar_yellow.png")
+var _bar_red := preload("res://assets/healthbar_red.png")
+var _bar_green := preload("res://assets/healthbar_green.png")
+var _bar_yellow := preload("res://assets/healthbar_yellow.png")
 
 
-var _health := 3
-var _shots_left := 15
+var _health : int = 3
+var _shots_left : int = 15
 
 func _ready():
 #shoots a laser the moment a tower is placed

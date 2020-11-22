@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
-const SPEED := 200
-var _velocity := Vector2()
+const SPEED : int = 200
 
+var _velocity := Vector2()
 
 
 func _physics_process(_delta):

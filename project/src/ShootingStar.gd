@@ -1,11 +1,12 @@
 extends RigidBody2D
 
-export var min_speed = 125 # minimum speed range
-export var max_speed = 200 # maximum speed range
-
 signal star_grabbed
 
+export var min_speed : int = 125 # minimum speed range
+export var max_speed : int = 200 # maximum speed range
+
 var _grabbed := false
+
 
 func _ready():
 	$Sprite.play("default")
@@ -13,6 +14,7 @@ func _ready():
 
 func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
+
 
 func _twinkle():
 	if _grabbed == false:

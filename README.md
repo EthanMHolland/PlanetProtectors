@@ -10,9 +10,10 @@ Asteroids are heading for Earth! Use the Planet Protectors space towers to destr
 Use the "Left Mouse Button" to place the towers in the squares prvoided.
 Each tower only has enough battery for 15 shots before they die and float away.
 Each tower can only take 3 hits from asteroids before they are destroyed.
+Cheats: "9" to spawn more shooting stars, "0" to give yourself more money, "-" to stop the asteroids from spawning that wave, and "=" to skip to the next wave.
 
 ## Reflection
-This iteration was fun to work on. The game has been coming together just like we want and we are excited to be able to add more of our ideas to the game. Our planning stage was rough, because we didn’t really understand how small to slice our problems. We were thinking too big like “Add level” rather than “Add Collision between Asteroid and Tower”. We plan to put more into the planning stage for this next iteration to make sure our slicing and user stories are right. We did our own sprites as Ethan feels the game doesn’t feel right using mixed and matched sprites from the internet.They turned out well and make the game feel like ours. We were going to have an exception, for the asteroid sprite, but Logan emailed for guidance and we decided to just make one. Which fit better with Ethan’s values. We have a lot of work ahead of us, but it feels good having this iteration as a starting point to work from.
+This iteration was a little less exciting than the first one. Just for the fact that it was mostly spent adding in a lot of background mechanics and bug fixes. There were a lot of fun parts though. For Ethan this was the creation of the shooting stars. They were his favorite part that he created. He taught himself how to use the particle effects to make the stars look nicer. He also enjoyed adding in sound effects and music, especially the asteroid explosion sounds. Which were just him sighing into the mic and adding effects to it. For Logan, he found the cheat codes a lot of fun to make. They reminded him of using cheats codes in older games like GTA San Andreas. Something that we are still struggling with is using git as a team. This is due to the fact that if we both are doing something with the project and one of us pushes, it gives errors for the other person trying to pull. We belive that it may be an issue that branches will solve so we will be looking more into it for the next iteration. 
 
 ## Self-Evaluation
 - [X] D-1: The repository link is submitted to Canvas before the project deadline.
@@ -40,12 +41,13 @@ This iteration was fun to work on. The game has been coming together just like w
 - [X] ⭐ Allow the user to control the volume of music and sound effects independently.
 - [ ] ⭐ Incorporate juiciness and document it in the <code>README.md</code>
 - [ ] ⭐ Incorporate another kind of juiciness and document it in the <code>README.md</code>
-- [ ] ⭐ Use particle effects
+- [X] ⭐ Use particle effects
 - [ ] ⭐ Use different layers and masks to manage collisions and document this in the <code>README.md</code>
 - [ ] ⭐ Incorporate pop into your HUD or title screen using <code>Tween</code> or <code>AnimationPlayer</code>
 - [ ] ⭐ Include an AI-controlled characters
 - [ ] ⭐ Include an AI-controlled character controlled with a different AI
-- [ ] ⭐ Add a pause menu that includes, at minimum, the ability to resume or return to the main menu
+- [X] ⭐ Add a pause menu that includes, at minimum, the ability to resume or return to the main menu
+- [ ] ⭐ Follow the planning process introduced in Iteration 1 for both Iterations 2 and 3, and mention the impact of this in your personal reflection.
 - [ ] ⭐ The game is released publicly on <code>itch.io</code>, with all the recommended accompanying text, screenshots, gameplay videos, <i>etc.</i>
 
 ## First Party Assets

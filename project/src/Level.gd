@@ -3,7 +3,7 @@ extends Node2D
 signal paused
 signal sfxvolume
 
-const BASE_ASTEROID_AMOUNT := 3
+const BASE_ASTEROID_AMOUNT : int = 3
 
 var _asteroids_this_wave : int
 var _asteroids_left_to_spawn : int
@@ -20,13 +20,11 @@ var _asteroid := preload("Asteroid.tscn")
 var _shooting_star := preload("ShootingStar.tscn")
 
 
-
 #starts initial wave and money timer
 func _ready():
 	$BackgroundMusic.play()
 	_wave_start()
 	$IncreaseMoney.start()
-	
 	$ShootingStarTimer.start()
 
 
@@ -38,7 +36,7 @@ func _process(_delta):
 	$Wave.text = "Wave: " + str(_wave)
 	
 	if _wave >= 16:
-		var _change_scene = get_tree().change_scene("res://src/WinScreen.tscn")
+		var _change_scene := get_tree().change_scene("res://src/WinScreen.tscn")
 
 	if Input.is_action_just_pressed("add_funds"):
 		_money += 10
@@ -52,6 +50,7 @@ func _process(_delta):
 
 	if Input.is_action_just_pressed("increase_wave"):
 		_wave_start()
+		
 	if Input.is_action_just_pressed("pause"):
 		emit_signal("paused")
 	
@@ -75,10 +74,10 @@ func _wave_start():
 #spawns asteroids and randomly chooses their spawn row
 func _spawn_asteroid():
 	_rng.randomize()
-	var _spawn_location = round(_rng.randf_range(0,4))
-	
-	var _new_asteroid = _asteroid.instance()
+	var _spawn_location := round(_rng.randf_range(0,4))
+	var _new_asteroid := _asteroid.instance()
 	add_child(_new_asteroid)
+	
 	if _spawn_location == 0:
 		_new_asteroid.global_position = $SpawnPoint1.global_position
 	elif _spawn_location == 1:
@@ -91,8 +90,8 @@ func _spawn_asteroid():
 		_new_asteroid.global_position = $SpawnPoint5.global_position
 
 #connects the destroyed signal from Asteroid.gd to this script
-	_new_asteroid.connect("destroyed", self, "_on_AsteroidDestroyed")
-	_new_asteroid.speed = _new_asteroid_speed
+	var _ignore := _new_asteroid.connect("destroyed", self, "_on_AsteroidDestroyed")
+	_new_asteroid._speed = _new_asteroid_speed
 	
 	_asteroids_left_to_spawn -= 1
 	
@@ -142,7 +141,7 @@ func _spawn_shooting_star():
 	# Choose a random location on Path2D.
 	$StarPath/StarSpawnLocation.offset = randi()
 	# Create a Mob instance and add it to the scene.
-	var _new_star = _shooting_star.instance()
+	var _new_star := _shooting_star.instance()
 	add_child(_new_star)
 	# Set the mob's direction perpendicular to the path direction.
 	var direction = $StarPath/StarSpawnLocation.rotation + PI / 2
@@ -154,7 +153,7 @@ func _spawn_shooting_star():
 	# Set the velocity (speed & direction).
 	_new_star.linear_velocity = Vector2(rand_range(_new_star.min_speed, _new_star.max_speed), 0)
 	_new_star.linear_velocity = _new_star.linear_velocity.rotated(direction)
-	_new_star.connect("star_grabbed", self, "_on_star_grabbed")
+	var _ignore := _new_star.connect("star_grabbed", self, "_on_star_grabbed")
 
 
 func _on_ShootingStarTimer_timeout():
@@ -183,7 +182,7 @@ func _on_ResumeButton_button_down():
 
 func _on_MainMenuButton_button_down():
 	get_tree().paused = false
-	var _change_scene = get_tree().change_scene("res://src/TitleScreen.tscn")
+	var _change_scene := get_tree().change_scene("res://src/TitleScreen.tscn")
 
 
 func _on_Button_button_down():

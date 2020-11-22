@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 signal destroyed
 
-var speed := -50
+var _speed : int = -50
 var _velocity := Vector2()
 
 
@@ -13,7 +13,7 @@ func _process(_delta):
 func _physics_process(_delta):
 #sets the direction of the asteroids
 	var _direction := Vector2(-1, 0)
-	_velocity.x = speed
+	_velocity.x = _speed
 	_velocity = move_and_slide(_velocity, Vector2(-1, 0))
 	rotation -= 0.01
 

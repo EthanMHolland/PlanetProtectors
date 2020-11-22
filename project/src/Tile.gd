@@ -19,12 +19,12 @@ func _place_tower():
 			# checks if the player has enough money
 			if level._money >= 10:
 				#Spawns in tower
-				var _new_tower = laser_tower.instance()
+				var _new_tower := laser_tower.instance()
 				_new_tower.position = Vector2(0,0)
 				self.add_child(_new_tower)
 				_has_tower = true
 				#Connects "tower destroyed" signal from LaserTower.gd to this script
-				_new_tower.connect("tower_destroyed", self, "_on_tower_destroyed")
+				var _ignore := _new_tower.connect("tower_destroyed", self, "_on_tower_destroyed")
 				level._money -= 10
 			else:
 				print("Insufficient money!")
