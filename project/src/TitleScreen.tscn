@@ -35,4 +35,16 @@ __meta__ = {
 [node name="LaserTower" parent="." instance=ExtResource( 1 )]
 position = Vector2( 300, 260 )
 scale = Vector2( 10, 10 )
+
+[node name="InfoButton" type="Button" parent="."]
+margin_left = 462.694
+margin_top = 461.288
+margin_right = 562.694
+margin_bottom = 511.288
+text = "INFO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="button_down" from="PlayButton" to="." method="_on_PlayButton_button_down"]
+[connection signal="button_down" from="InfoButton" to="." method="_on_InfoButton_button_down"]
+[connection signal="pressed" from="InfoButton" to="." method="_on_InfoButton_pressed"]
