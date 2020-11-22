@@ -7,6 +7,7 @@ const BASE_ASTEROID_AMOUNT := 3
 
 var _asteroids_this_wave : int
 var _asteroids_left : int
+var _asteroids_left_in_wave : int
 var _asteroids_destroyed : int
 var _wave : int = 0
 var _total_asteroids_destroyed : int
@@ -34,7 +35,7 @@ func _process(_delta):
 	if(_asteroids_left == 0):
 		$SpawnerTimer.stop()
 	_check_asteroids_left()
-	$AsteroidsLeft.text = "Left: " + str(_asteroids_this_wave - _asteroids_destroyed)
+	$AsteroidsLeft.text = "Left: " + str(_asteroids_left_in_wave)
 	$Money.text = "$" + str(_money)
 	$Wave.text = "Wave: " + str(_wave)
 	
@@ -63,6 +64,7 @@ func _wave_start():
 # Ignored because we want to only spawn integers of asteroids, so we must round and lose precision
 	_asteroids_this_wave = round(BASE_ASTEROID_AMOUNT + (pow(_wave, 2) * BASE_ASTEROID_AMOUNT/10))
 	_asteroids_left = _asteroids_this_wave
+	_asteroids_left_in_wave = _asteroids_this_wave
 	$SpawnerTimer.start()
 
 
@@ -93,7 +95,7 @@ func _spawn_asteroid():
 
 #checks if all asteroids this wave have been destroyed and if so, starts between wave timer
 func _check_asteroids_left():
-	if (_asteroids_destroyed >= _asteroids_this_wave and $BetweenWavesTimer.time_left == 0):
+	if (_asteroids_left_in_wave == 0 and $BetweenWavesTimer.time_left == 0):
 		_asteroids_destroyed = 0
 		$BetweenWavesTimer.start()
 
@@ -112,6 +114,7 @@ func _on_AsteroidDestroyed():
 	$AsteroidExplodeSound.play()
 	_asteroids_destroyed += 1
 	_total_asteroids_destroyed += 1
+	_asteroids_left_in_wave -= 1
 	_money += 2
 	
 
