@@ -5,6 +5,8 @@ export var max_speed = 200 # maximum speed range
 
 signal star_grabbed
 
+var _grabbed := false
+
 func _ready():
 	$Sprite.play("default")
 
@@ -13,10 +15,12 @@ func _on_VisibilityNotifier2D_screen_exited():
 	queue_free()
 
 func _twinkle():
-	linear_velocity = Vector2.ZERO
-	$Sprite.play("twinkle")
-	$TwinkleSound.play()
-	emit_signal("star_grabbed")
+	if _grabbed == false:
+		linear_velocity = Vector2.ZERO
+		$Sprite.play("twinkle")
+		$TwinkleSound.play()
+		emit_signal("star_grabbed")
+		_grabbed = true
 
 
 func _on_ShootingStar_input_event(_viewport, _event, _shape_idx):

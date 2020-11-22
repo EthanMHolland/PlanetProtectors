@@ -1,6 +1,6 @@
 extends Area2D
 
-#signal tower_destroyed
+signal tower_destroyed
 
 const LASER = preload("Laser.tscn")
 
