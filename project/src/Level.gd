@@ -6,8 +6,8 @@ signal sfxvolume
 const BASE_ASTEROID_AMOUNT := 3
 
 var _asteroids_this_wave : int
-var _asteroids_left : int
-var _asteroids_left_in_wave : int
+var _asteroids_left_to_spawn : int
+var _asteroids_left_on_screen : int
 var _asteroids_destroyed : int
 var _wave : int = 0
 var _total_asteroids_destroyed : int
@@ -32,10 +32,8 @@ func _ready():
 
 #checks if all asteroids have been spawned and updates HUD info
 func _process(_delta):
-	if(_asteroids_left == 0):
-		$SpawnerTimer.stop()
 	_check_asteroids_left()
-	$AsteroidsLeft.text = "Left: " + str(_asteroids_left_in_wave)
+	_set_asteroids_left_text()
 	$Money.text = "$" + str(_money)
 	$Wave.text = "Wave: " + str(_wave)
 	
@@ -46,12 +44,18 @@ func _process(_delta):
 		_money += 10
 
 	if Input.is_action_just_pressed("stop_asteroid_spawning"):
-		_asteroids_left = 0
+		_asteroids_left_on_screen = 0
+		_asteroids_left_to_spawn = 0
+	
+	if Input.is_action_just_pressed("spawn_star"):
+		_spawn_shooting_star()
 
 	if Input.is_action_just_pressed("increase_wave"):
 		_wave_start()
 	if Input.is_action_just_pressed("pause"):
 		emit_signal("paused")
+	
+	
 
 
 #Starts the next wave
@@ -63,8 +67,9 @@ func _wave_start():
 # warning-ignore:narrowing_conversion
 # Ignored because we want to only spawn integers of asteroids, so we must round and lose precision
 	_asteroids_this_wave = round(BASE_ASTEROID_AMOUNT + (pow(_wave, 2) * BASE_ASTEROID_AMOUNT/10))
-	_asteroids_left = _asteroids_this_wave
-	_asteroids_left_in_wave = _asteroids_this_wave
+	print(_asteroids_this_wave)
+	_asteroids_left_on_screen = _asteroids_this_wave
+	_asteroids_left_to_spawn = _asteroids_this_wave
 	$SpawnerTimer.start()
 
 
@@ -90,19 +95,20 @@ func _spawn_asteroid():
 	_new_asteroid.connect("destroyed", self, "_on_AsteroidDestroyed")
 	_new_asteroid.speed = _new_asteroid_speed
 	
-	_asteroids_left -= 1
-
+	_asteroids_left_to_spawn -= 1
+	
+	if _asteroids_left_to_spawn > 0:
+		$SpawnerTimer.start()
 
 #checks if all asteroids this wave have been destroyed and if so, starts between wave timer
 func _check_asteroids_left():
-	if (_asteroids_left_in_wave == 0 and $BetweenWavesTimer.time_left == 0):
+	if (_asteroids_left_on_screen == 0 and $BetweenWavesTimer.time_left == 0):
 		_asteroids_destroyed = 0
 		$BetweenWavesTimer.start()
 
 
 func _on_SpawnerTimer_timeout():
 	_spawn_asteroid()
-	
 
 
 func _on_BetweenWavesTimer_timeout():
@@ -114,7 +120,7 @@ func _on_AsteroidDestroyed():
 	$AsteroidExplodeSound.play()
 	_asteroids_destroyed += 1
 	_total_asteroids_destroyed += 1
-	_asteroids_left_in_wave -= 1
+	_asteroids_left_on_screen -= 1
 	_money += 2
 	
 
@@ -183,3 +189,8 @@ func _on_MainMenuButton_button_down():
 
 func _on_Button_button_down():
 	_on_Level_paused()
+
+func _set_asteroids_left_text():
+	if _asteroids_left_on_screen < 0:
+		_asteroids_left_on_screen = 0
+	$AsteroidsLeft.text = "Left: " + str(_asteroids_left_on_screen)

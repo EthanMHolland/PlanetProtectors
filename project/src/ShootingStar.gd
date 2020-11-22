@@ -16,6 +16,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 func _twinkle():
 	if _grabbed == false:
+		$Particles.hide()
 		linear_velocity = Vector2.ZERO
 		$Sprite.play("twinkle")
 		$TwinkleSound.play()
