@@ -67,7 +67,6 @@ func _wave_start():
 # warning-ignore:narrowing_conversion
 # Ignored because we want to only spawn integers of asteroids, so we must round and lose precision
 	_asteroids_this_wave = round(BASE_ASTEROID_AMOUNT + (pow(_wave, 2) * BASE_ASTEROID_AMOUNT/10))
-	print(_asteroids_this_wave)
 	_asteroids_left_on_screen = _asteroids_this_wave
 	_asteroids_left_to_spawn = _asteroids_this_wave
 	$SpawnerTimer.start()

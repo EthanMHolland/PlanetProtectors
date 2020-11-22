@@ -37,7 +37,7 @@ This iteration was fun to work on. The game has been coming together just like w
 - [ ] ⭐ Use paper doll animations
 - [ ] ⭐ Incorporate smooth transitions between title, game, and end states, rather than jumping between states via <code>change_scene</code>
 - [X] ⭐ Support both touch and mouse/keyboard input in the Web build
-- [ ] ⭐ Allow the user to control the volume of music and sound effects independently.
+- [X] ⭐ Allow the user to control the volume of music and sound effects independently.
 - [ ] ⭐ Incorporate juiciness and document it in the <code>README.md</code>
 - [ ] ⭐ Incorporate another kind of juiciness and document it in the <code>README.md</code>
 - [ ] ⭐ Use particle effects
@@ -49,9 +49,9 @@ This iteration was fun to work on. The game has been coming together just like w
 - [ ] ⭐ The game is released publicly on <code>itch.io</code>, with all the recommended accompanying text, screenshots, gameplay videos, <i>etc.</i>
 
 ## First Party Assets
-The logo was made by Logan Summers and Ethan Holland
+Logo by Logan Summers
 
-Sprites by Ethan Holland
+Sprites and Sounds by Ethan Holland
 
 ## Third Party Assets
 The font used is "Xolonium". Copyright &copy; 2011-2016 Severin Meyer <sev.ch@web.de>, with Reserved Font Name Xolonium, SIL open font license version 1.1. Details are in `assets/LICENSE.txt`.

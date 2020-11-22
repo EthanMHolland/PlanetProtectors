@@ -4,9 +4,9 @@ signal tower_destroyed
 
 const LASER = preload("Laser.tscn")
 
-var _bar_red = preload("res://assets/barHorizontal_red.png")
-var _bar_green = preload("res://assets/barHorizontal_green.png")
-var _bar_yellow = preload("res://assets/barHorizontal_yellow.png")
+var _bar_red = preload("res://assets/healthbar_red.png")
+var _bar_green = preload("res://assets/healthbar_green.png")
+var _bar_yellow = preload("res://assets/healthbar_yellow.png")
 
 
 var _health := 3
@@ -57,5 +57,5 @@ func _check_health():
 		$HealthBar.value = 1
 		$HealthBar.texture_progress = _bar_red
 	elif _health == 0:
-		$HealthBar.value == 0
+		#$HealthBar.value == 0
 		queue_free()
