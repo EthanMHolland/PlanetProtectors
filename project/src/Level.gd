@@ -128,6 +128,7 @@ func _on_Planet_area_entered(area):
 	if area.is_in_group("Asteroid"):
 		area.get_parent().queue_free()
 		_earth_health -= 1
+		_asteroids_left_on_screen -= 1
 		if _earth_health == 0:
 			var _change_scene = get_tree().change_scene("res://src/EndScreen.tscn")
 
