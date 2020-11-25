@@ -36,3 +36,12 @@ func _on_Cheats_mouse_entered():
 
 func _on_Cheats_mouse_exited():
 	_set_default_text()
+
+
+
+func _on_ShootingStar_mouse_entered():
+	$InfoText.text = "Shooting Stars\n\n- Randomly fly across screen\n- Collect star to gain $10"
+
+
+func _on_ShootingStar_mouse_exited():
+	_set_default_text()
