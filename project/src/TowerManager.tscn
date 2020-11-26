@@ -4,50 +4,50 @@
 [ext_resource path="res://src/TowerManager.gd" type="Script" id=2]
 [ext_resource path="res://assets/towers/shotgun_tower/shotgun_tower_5.png" type="Texture" id=3]
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
 region = Rect2( 16, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 16, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
 "loop": true,
 "name": "default",
 "speed": 2.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 8.04667, 8.19538 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 16, 16 )
+region = Rect2( 16, 0, 16, 16 )
 
 [sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 3 )
-region = Rect2( 16, 0, 16, 16 )
-
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 3 )
 region = Rect2( 0, 16, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=10]
+[sub_resource type="SpriteFrames" id=9]
 animations = [ {
-"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
 "name": "default",
 "speed": 2.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 23.8953, 24.5054 )
 
 [node name="TowerManager" type="Node2D"]
@@ -58,25 +58,25 @@ script = ExtResource( 2 )
 [node name="LaserTower" type="Area2D" parent="CanvasLayer"]
 
 [node name="Sprite" type="AnimatedSprite" parent="CanvasLayer/LaserTower"]
-position = Vector2( 271.139, 563.65 )
+position = Vector2( 75, 563 )
 scale = Vector2( 3, 3 )
-frames = SubResource( 2 )
+frames = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/LaserTower"]
-position = Vector2( 271.955, 566.423 )
+position = Vector2( 75, 563 )
 scale = Vector2( 3, 3 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="ShotgunTower" type="Area2D" parent="CanvasLayer"]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/ShotgunTower"]
-position = Vector2( 352.488, 565.467 )
+position = Vector2( 140, 563 )
 scale = Vector2( 3, 3 )
-frames = SubResource( 10 )
+frames = SubResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/ShotgunTower"]
-position = Vector2( 353.114, 566.076 )
-shape = SubResource( 11 )
+position = Vector2( 140, 563 )
+shape = SubResource( 10 )
 [connection signal="mouse_entered" from="CanvasLayer/LaserTower" to="." method="_on_LaserTower_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/LaserTower" to="." method="_on_LaserTower_mouse_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/ShotgunTower" to="." method="_on_ShotgunTower_mouse_entered"]

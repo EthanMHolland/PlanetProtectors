@@ -35,7 +35,7 @@ func _select_laser_tower():
 		if (_dragging_laser_tower_last == true):
 			_dragging_laser_tower = false
 			_dragging_laser_tower_last = _dragging_laser_tower
-			$CanvasLayer/LaserTower/Sprite.position = Vector2(271, 563)
+			$CanvasLayer/LaserTower/Sprite.position = Vector2(75, 563)
 			emit_signal("place_laser_tower")
 
 func _on_LaserTower_mouse_entered():
@@ -56,7 +56,7 @@ func _select_shotgun_tower():
 		if (_dragging_shotgun_tower_last == true):
 			_dragging_shotgun_tower = false
 			_dragging_shotgun_tower_last = _dragging_shotgun_tower
-			$CanvasLayer/ShotgunTower/AnimatedSprite.position = Vector2(352, 563)
+			$CanvasLayer/ShotgunTower/AnimatedSprite.position = Vector2(140, 563)
 			emit_signal("place_shotgun_tower")
 			
 
