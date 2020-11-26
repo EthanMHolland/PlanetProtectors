@@ -120,7 +120,7 @@ func _on_AsteroidDestroyed():
 	_total_asteroids_destroyed += 1
 	_asteroids_left_on_screen -= 1
 	_money += 2
-	
+	$Camera2D/ScreenShake._start()
 
 
 #if an asteroid hits the planet 5 times then it ends the game

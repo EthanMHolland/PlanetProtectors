@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/background.png" type="Texture" id=1]
 [ext_resource path="res://src/Tile.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/sounds/new_wave.wav" type="AudioStream" id=9]
 [ext_resource path="res://assets/GreyBackground.jpg" type="Texture" id=10]
 [ext_resource path="res://src/TowerManager.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/ScreenShake.tscn" type="PackedScene" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -46,6 +47,17 @@ font_data = ExtResource( 6 )
 [node name="Level" type="Node2D"]
 script = ExtResource( 4 )
 
+[node name="BackgroundColorRect" type="ColorRect" parent="."]
+margin_left = -154.0
+margin_top = -72.0
+margin_right = 1141.0
+margin_bottom = 709.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Background" type="TextureRect" parent="."]
 margin_right = 1024.0
 margin_bottom = 600.0
@@ -58,6 +70,16 @@ __meta__ = {
 [node name="Planet" parent="." instance=ExtResource( 3 )]
 position = Vector2( -96, 280 )
 scale = Vector2( 10, 10 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 511.175, 300.346 )
+current = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ScreenShake" parent="Camera2D" instance=ExtResource( 12 )]
+position = Vector2( 0, 3.8147e-06 )
 
 [node name="Tiles" type="GridContainer" parent="."]
 margin_left = 192.0
