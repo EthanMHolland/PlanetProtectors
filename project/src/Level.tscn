@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://assets/background.png" type="Texture" id=1]
 [ext_resource path="res://src/Tile.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://assets/sounds/asteroid_explode.wav" type="AudioStream" id=8]
 [ext_resource path="res://assets/sounds/new_wave.wav" type="AudioStream" id=9]
 [ext_resource path="res://assets/GreyBackground.jpg" type="Texture" id=10]
+[ext_resource path="res://src/TowerManager.tscn" type="PackedScene" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -370,6 +371,8 @@ text = "PAUSE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="TowerManager" parent="." instance=ExtResource( 11 )]
 [connection signal="paused" from="." to="." method="_on_Level_paused"]
 [connection signal="area_entered" from="Planet" to="." method="_on_Planet_area_entered"]
 [connection signal="timeout" from="BetweenWavesTimer" to="." method="_on_BetweenWavesTimer_timeout"]

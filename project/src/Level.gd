@@ -193,3 +193,6 @@ func _set_asteroids_left_text():
 	if _asteroids_left_on_screen < 0:
 		_asteroids_left_on_screen = 0
 	$AsteroidsLeft.text = "Left: " + str(_asteroids_left_on_screen)
+
+func _on_tower_grabbed():
+	pass
