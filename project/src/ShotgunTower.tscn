@@ -1,14 +1,117 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://src/ShotgunTower.gd" type="Script" id=1]
+[ext_resource path="res://assets/towers/shotgun_tower/shotgun_tower_1.png" type="Texture" id=2]
 [ext_resource path="res://assets/sounds/laser_shoot.wav" type="AudioStream" id=3]
 [ext_resource path="res://assets/healthbar_green.png" type="Texture" id=4]
+[ext_resource path="res://assets/towers/shotgun_tower/shotgun_tower_3.png" type="Texture" id=5]
+[ext_resource path="res://assets/towers/shotgun_tower/shotgun_tower_2.png" type="Texture" id=6]
+[ext_resource path="res://assets/towers/shotgun_tower/shotgun_tower_5.png" type="Texture" id=7]
+[ext_resource path="res://assets/towers/shotgun_tower/shotgun_tower_4.png" type="Texture" id=8]
+[ext_resource path="res://assets/towers/shotgun_tower/shotgun_tower_0.png" type="Texture" id=9]
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 6 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 9 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 5 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 7 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 8 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 16, 16, 16 )
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [  ],
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
 "loop": true,
-"name": "default",
+"name": "battery1",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
+"loop": true,
+"name": "battery2",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"loop": true,
+"name": "battery0",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"loop": true,
+"name": "battery3",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "battery5",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"loop": true,
+"name": "battery4",
 "speed": 5.0
 } ]
 
@@ -19,14 +122,16 @@ extents = Vector2( 7.95908, 8.01494 )
 "Tower",
 ]]
 scale = Vector2( 3, 3 )
+z_index = 1
 z_as_relative = false
 input_pickable = false
 script = ExtResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, 1.77778 )
+position = Vector2( 0, 1.45255 )
 frames = SubResource( 1 )
-animation = "idling"
+animation = "battery0"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -35,6 +140,12 @@ shape = SubResource( 2 )
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 7.51796, 0 )
+
+[node name="Position2D2" type="Position2D" parent="."]
+position = Vector2( 7.51796, -2.01642 )
+
+[node name="Position2D3" type="Position2D" parent="."]
+position = Vector2( 7.51796, 2.01642 )
 
 [node name="ShootTimer" type="Timer" parent="."]
 wait_time = 3.0

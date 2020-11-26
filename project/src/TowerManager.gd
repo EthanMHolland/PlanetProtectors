@@ -13,7 +13,6 @@ func _process(_delta):
 	_select_laser_tower()
 		
 
-
 func _select_laser_tower():
 	if Input.is_action_pressed("drag_tower"):
 		if _mouse_inside_laser == true:

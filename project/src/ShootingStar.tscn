@@ -85,6 +85,7 @@ animations = [ {
 extents = Vector2( 9.57654, 9.69364 )
 
 [node name="ShootingStar" type="RigidBody2D"]
+z_index = 4
 input_pickable = true
 collision_layer = 4
 collision_mask = 0
