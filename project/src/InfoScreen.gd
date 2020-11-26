@@ -45,3 +45,11 @@ func _on_ShootingStar_mouse_entered():
 
 func _on_ShootingStar_mouse_exited():
 	_set_default_text()
+
+
+func _on_ShotgunTower_mouse_entered():
+	$InfoText.text = "Multi-Shot Tower\n\n- Shoots 3 lasers in quick succesion\n- Cost $30 to place\n- Battery lasts 15 rounds of shots before dying\n- Can take 3 hits from asteroids before being destroyed"
+
+
+func _on_ShotgunTower_mouse_exited():
+	_set_default_text()

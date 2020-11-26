@@ -1,41 +1,42 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://assets/GreyBackground.jpg" type="Texture" id=1]
-[ext_resource path="res://assets/towers/tower_idling.png" type="Texture" id=2]
+[ext_resource path="res://assets/towers/laser_tower/laser_tower_5.png" type="Texture" id=2]
 [ext_resource path="res://assets/background.png" type="Texture" id=3]
 [ext_resource path="res://src/InfoScreen.gd" type="Script" id=4]
 [ext_resource path="res://assets/asteroid.png" type="Texture" id=5]
 [ext_resource path="res://assets/shooting_star.png" type="Texture" id=6]
+[ext_resource path="res://assets/towers/shotgun_tower/shotgun_tower_5.png" type="Texture" id=7]
 
-[sub_resource type="AtlasTexture" id=1]
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/Xolonium-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 25
+font_data = SubResource( 1 )
+
+[sub_resource type="AtlasTexture" id=34]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=35]
 atlas = ExtResource( 2 )
 region = Rect2( 16, 0, 16, 16 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=36]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 16, 16, 16 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
+"frames": [ SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ],
 "loop": true,
 "name": "default",
-"speed": 3.0
+"speed": 2.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 39.431, 37.842 )
-
-[sub_resource type="DynamicFontData" id=6]
-font_path = "res://assets/Xolonium-Regular.ttf"
-
-[sub_resource type="DynamicFont" id=7]
-size = 25
-font_data = SubResource( 6 )
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 40.8376, 39.2484 )
@@ -126,6 +127,29 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=28]
 extents = Vector2( 39.2852, 36.6869 )
 
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 7 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 7 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=32]
+animations = [ {
+"frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=33]
+extents = Vector2( 37.2571, 37.7009 )
+
 [node name="InfoScreen" type="Node2D"]
 script = ExtResource( 4 )
 __meta__ = {
@@ -165,38 +189,38 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LaserTower" type="Area2D" parent="."]
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="LaserTower"]
-position = Vector2( 135.714, 109.696 )
-scale = Vector2( 4.5, 4.5 )
-frames = SubResource( 4 )
-frame = 2
-playing = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LaserTower"]
-position = Vector2( 137.824, 109.696 )
-shape = SubResource( 5 )
-
 [node name="InfoText" type="RichTextLabel" parent="."]
 margin_left = 387.0
 margin_top = 68.0
 margin_right = 996.0
 margin_bottom = 382.0
-custom_fonts/normal_font = SubResource( 7 )
+custom_fonts/normal_font = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="LaserTower" type="Area2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="LaserTower"]
+position = Vector2( 135, 109 )
+scale = Vector2( 4.5, 4.5 )
+frames = SubResource( 6 )
+frame = 2
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaserTower"]
+position = Vector2( 135, 109 )
+shape = SubResource( 7 )
+
 [node name="Asteroid" type="Area2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="Asteroid"]
-position = Vector2( 267.209, 111.103 )
+position = Vector2( 267, 109 )
 scale = Vector2( 4.5, 4.5 )
 texture = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Asteroid"]
-position = Vector2( 268.616, 108.29 )
+position = Vector2( 267, 109 )
 shape = SubResource( 8 )
 
 [node name="Cheats" type="Area2D" parent="."]
@@ -232,13 +256,24 @@ shape = SubResource( 11 )
 [node name="ShootingStar" type="Area2D" parent="."]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ShootingStar"]
-position = Vector2( 267.697, 221.053 )
+position = Vector2( 267, 221 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 27 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShootingStar"]
-position = Vector2( 267.697, 219.025 )
+position = Vector2( 267, 221 )
 shape = SubResource( 28 )
+
+[node name="ShotgunTower" type="Area2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="ShotgunTower"]
+position = Vector2( 135, 221 )
+scale = Vector2( 4.5, 4.5 )
+frames = SubResource( 32 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShotgunTower"]
+position = Vector2( 135, 221 )
+shape = SubResource( 33 )
 [connection signal="button_down" from="BackButton" to="." method="_on_BackButton_button_down"]
 [connection signal="mouse_entered" from="LaserTower" to="." method="_on_LaserTower_mouse_entered"]
 [connection signal="mouse_exited" from="LaserTower" to="." method="_on_LaserTower_mouse_exited"]
@@ -248,3 +283,5 @@ shape = SubResource( 28 )
 [connection signal="mouse_exited" from="Cheats" to="." method="_on_Cheats_mouse_exited"]
 [connection signal="mouse_entered" from="ShootingStar" to="." method="_on_ShootingStar_mouse_entered"]
 [connection signal="mouse_exited" from="ShootingStar" to="." method="_on_ShootingStar_mouse_exited"]
+[connection signal="mouse_entered" from="ShotgunTower" to="." method="_on_ShotgunTower_mouse_entered"]
+[connection signal="mouse_exited" from="ShotgunTower" to="." method="_on_ShotgunTower_mouse_exited"]
