@@ -21,10 +21,6 @@ func _process(_delta):
 	_check_health()
 	_check_shots()
 
-#deletes tower if amount of shots left is 0 or below
-	if _shots_left <= 0:
-		emit_signal("tower_destroyed")
-		queue_free()
 
 
 #shoots laser every 3 seconds
@@ -76,6 +72,7 @@ func _check_health():
 		$HealthBar.texture_progress = _bar_red
 	elif _health == 0:
 		#$HealthBar.value == 0
+		emit_signal("tower_destroyed")
 		queue_free()
 
 
@@ -100,3 +97,5 @@ func _check_shots():
 		$AnimatedSprite.play("battery1")
 	elif _shots_left <= 0:
 		$AnimatedSprite.play("battery0")
+		emit_signal("tower_destroyed")
+		queue_free()
