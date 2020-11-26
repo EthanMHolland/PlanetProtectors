@@ -11,7 +11,7 @@ func _on_LaserTower_mouse_entered():
 
 
 func _set_default_text():
-	$InfoText.text = "Welcome to Planet Protectors!\nThere are asteroids heading toward Earth and we need your help to stop them!\n\n- Place Towers in the grid to fight back!\n- Catch Shooting Stars for extra money!\n- Beat Wave 15 to win!\n\nGood Luck!"
+	$InfoText.text = "Welcome to Planet Protectors!\nThere are asteroids heading toward Earth and we need your help to stop them!\n\n- Drag and drop towers in the grid to fight back!\n- Catch Shooting Stars for extra money!\n- Beat Wave 15 to win!\n\nGood Luck!"
 
 
 func _on_BackButton_button_down():
