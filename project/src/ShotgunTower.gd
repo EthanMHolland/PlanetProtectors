@@ -44,6 +44,7 @@ func _shoot_laser():
 	$MidshotTimer.start()
 
 func _shoot_second_laser():
+	$LaserShootSound.play()
 	var _new_laser2 = LASER.instance()
 	add_child(_new_laser2)
 	_new_laser2.global_position = $Position2D2.global_position
@@ -51,6 +52,7 @@ func _shoot_second_laser():
 	$MidshotTimer.start()
 	
 func _shoot_third_laser():
+	$LaserShootSound.play()
 	var _new_laser3 = LASER.instance()
 	add_child(_new_laser3)
 	_new_laser3.global_position = $Position2D3.global_position
