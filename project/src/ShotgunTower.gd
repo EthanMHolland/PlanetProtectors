@@ -19,6 +19,7 @@ func _ready():
 
 func _process(_delta):
 	_check_health()
+	_check_shots()
 
 #deletes tower if amount of shots left is 0 or below
 	if _shots_left <= 0:
@@ -83,3 +84,17 @@ func _on_MidshotTimer_timeout():
 		_shoot_third_laser()
 	elif _this_shots == 0:
 		_this_shots = 3
+
+func _check_shots():
+	if _shots_left >= 13:
+		$AnimatedSprite.play("battery5")
+	elif _shots_left >= 10:
+		$AnimatedSprite.play("battery4")
+	elif _shots_left >= 7:
+		$AnimatedSprite.play("battery3")
+	elif _shots_left >= 4:
+		$AnimatedSprite.play("battery2")
+	elif _shots_left >= 1:
+		$AnimatedSprite.play("battery1")
+	elif _shots_left <= 0:
+		$AnimatedSprite.play("battery0")
