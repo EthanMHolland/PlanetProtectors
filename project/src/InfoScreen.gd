@@ -1,6 +1,6 @@
 extends Node2D
 
-
+signal title_button_pressed
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_set_default_text()
@@ -11,11 +11,12 @@ func _on_LaserTower_mouse_entered():
 
 
 func _set_default_text():
-	$InfoText.text = "Welcome to Planet Protectors!\nThere are asteroids heading toward Earth and we need your help to stop them!\n\n- Drag and drop towers in the grid to fight back!\n- Catch Shooting Stars for extra money!\n- Beat Wave 15 to win!\n\nGood Luck!"
+	$InfoText.text = "Welcome to Planet Protectors!\nThere are asteroids heading toward Earth and we need your help to stop them!\n\n- Drag and drop towers in the grid to fight back!\n- Catch Shooting Stars for extra money!\n- Beat Wave 15 to win!\nGood Luck!"
 
 
 func _on_BackButton_button_down():
-	var _ignored = get_tree().change_scene("res://src/TitleScreen.tscn")
+#	var _ignored = get_tree().change_scene("res://src/TitleScreen.tscn")
+	emit_signal("title_button_pressed")
 
 
 func _on_Asteroid_mouse_entered():

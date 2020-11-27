@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://assets/GreyBackground.jpg" type="Texture" id=1]
 [ext_resource path="res://assets/towers/laser_tower/laser_tower_5.png" type="Texture" id=2]
@@ -7,6 +7,30 @@
 [ext_resource path="res://assets/asteroid.png" type="Texture" id=5]
 [ext_resource path="res://assets/shooting_star.png" type="Texture" id=6]
 [ext_resource path="res://assets/towers/shotgun_tower/shotgun_tower_5.png" type="Texture" id=7]
+[ext_resource path="res://assets/UI/green_arrow_normal.png" type="Texture" id=8]
+[ext_resource path="res://assets/UI/green_arrow_pressed.png" type="Texture" id=9]
+[ext_resource path="res://assets/UI/green_arrow_hover.png" type="Texture" id=10]
+
+[sub_resource type="StyleBoxTexture" id=34]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 32, 16 )
+
+[sub_resource type="StyleBoxTexture" id=35]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 32, 16 )
+
+[sub_resource type="StyleBoxTexture" id=36]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 32, 16 )
+
+[sub_resource type="DynamicFontData" id=37]
+font_path = "res://assets/Xolonium-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=38]
+size = 20
+use_mipmaps = true
+use_filter = true
+font_data = SubResource( 37 )
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://assets/Xolonium-Regular.ttf"
@@ -167,10 +191,14 @@ __meta__ = {
 }
 
 [node name="BackButton" type="Button" parent="."]
-margin_left = 450.242
-margin_top = 426.933
-margin_right = 550.242
-margin_bottom = 476.933
+margin_left = 448.0
+margin_top = 448.0
+margin_right = 548.0
+margin_bottom = 498.0
+custom_styles/hover = SubResource( 34 )
+custom_styles/pressed = SubResource( 35 )
+custom_styles/normal = SubResource( 36 )
+custom_fonts/font = SubResource( 38 )
 text = "BACK"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -205,6 +233,7 @@ __meta__ = {
 position = Vector2( 135, 109 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 6 )
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LaserTower"]
