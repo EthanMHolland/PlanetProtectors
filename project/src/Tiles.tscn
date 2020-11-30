@@ -1,0 +1,173 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Tile.tscn" type="PackedScene" id=2]
+
+[node name="Tiles" type="GridContainer"]
+margin_left = 192.0
+margin_top = 64.0
+margin_right = 960.0
+margin_bottom = 528.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tile" parent="." instance=ExtResource( 2 )]
+position = Vector2( 48, 32 )
+script = null
+
+[node name="Tile2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 144, 32 )
+script = null
+
+[node name="Tile3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 240, 32 )
+script = null
+
+[node name="Tile4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 336, 32 )
+script = null
+
+[node name="Tile5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 432, 32 )
+script = null
+
+[node name="Tile6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 528, 32 )
+script = null
+
+[node name="Tile7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 624, 32 )
+script = null
+
+[node name="Tile8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 720, 32 )
+script = null
+
+[node name="Tile9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 48, 128 )
+script = null
+
+[node name="Tile10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 144, 128 )
+script = null
+
+[node name="Tile11" parent="." instance=ExtResource( 2 )]
+position = Vector2( 240, 128 )
+script = null
+
+[node name="Tile12" parent="." instance=ExtResource( 2 )]
+position = Vector2( 336, 128 )
+script = null
+
+[node name="Tile13" parent="." instance=ExtResource( 2 )]
+position = Vector2( 432, 128 )
+script = null
+
+[node name="Tile14" parent="." instance=ExtResource( 2 )]
+position = Vector2( 528, 128 )
+script = null
+
+[node name="Tile15" parent="." instance=ExtResource( 2 )]
+position = Vector2( 624, 128 )
+script = null
+
+[node name="Tile16" parent="." instance=ExtResource( 2 )]
+position = Vector2( 720, 128 )
+script = null
+
+[node name="Tile17" parent="." instance=ExtResource( 2 )]
+position = Vector2( 48, 224 )
+script = null
+
+[node name="Tile18" parent="." instance=ExtResource( 2 )]
+position = Vector2( 144, 224 )
+script = null
+
+[node name="Tile19" parent="." instance=ExtResource( 2 )]
+position = Vector2( 240, 224 )
+script = null
+
+[node name="Tile20" parent="." instance=ExtResource( 2 )]
+position = Vector2( 336, 224 )
+script = null
+
+[node name="Tile21" parent="." instance=ExtResource( 2 )]
+position = Vector2( 432, 224 )
+script = null
+
+[node name="Tile22" parent="." instance=ExtResource( 2 )]
+position = Vector2( 528, 224 )
+script = null
+
+[node name="Tile23" parent="." instance=ExtResource( 2 )]
+position = Vector2( 624, 224 )
+script = null
+
+[node name="Tile24" parent="." instance=ExtResource( 2 )]
+position = Vector2( 720, 224 )
+script = null
+
+[node name="Tile25" parent="." instance=ExtResource( 2 )]
+position = Vector2( 48, 320 )
+script = null
+
+[node name="Tile26" parent="." instance=ExtResource( 2 )]
+position = Vector2( 144, 320 )
+script = null
+
+[node name="Tile27" parent="." instance=ExtResource( 2 )]
+position = Vector2( 240, 320 )
+script = null
+
+[node name="Tile28" parent="." instance=ExtResource( 2 )]
+position = Vector2( 336, 320 )
+script = null
+
+[node name="Tile29" parent="." instance=ExtResource( 2 )]
+position = Vector2( 432, 320 )
+script = null
+
+[node name="Tile30" parent="." instance=ExtResource( 2 )]
+position = Vector2( 528, 320 )
+script = null
+
+[node name="Tile31" parent="." instance=ExtResource( 2 )]
+position = Vector2( 624, 320 )
+script = null
+
+[node name="Tile32" parent="." instance=ExtResource( 2 )]
+position = Vector2( 720, 320 )
+script = null
+
+[node name="Tile33" parent="." instance=ExtResource( 2 )]
+position = Vector2( 48, 416 )
+script = null
+
+[node name="Tile34" parent="." instance=ExtResource( 2 )]
+position = Vector2( 144, 416 )
+script = null
+
+[node name="Tile35" parent="." instance=ExtResource( 2 )]
+position = Vector2( 240, 416 )
+script = null
+
+[node name="Tile36" parent="." instance=ExtResource( 2 )]
+position = Vector2( 336, 416 )
+script = null
+
+[node name="Tile37" parent="." instance=ExtResource( 2 )]
+position = Vector2( 432, 416 )
+script = null
+
+[node name="Tile38" parent="." instance=ExtResource( 2 )]
+position = Vector2( 528, 416 )
+script = null
+
+[node name="Tile39" parent="." instance=ExtResource( 2 )]
+position = Vector2( 624, 416 )
+script = null
+
+[node name="Tile40" parent="." instance=ExtResource( 2 )]
+position = Vector2( 720, 416 )
+script = null

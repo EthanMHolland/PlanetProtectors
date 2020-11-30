@@ -1,5 +1,6 @@
 extends Area2D
 
+
 var laser_tower := preload("LaserTower.tscn")
 var shotgun_tower := preload("ShotgunTower.tscn")
 var tower_manager := preload("TowerManager.tscn")

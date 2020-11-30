@@ -72,7 +72,7 @@ position = Vector2( -96, 280 )
 scale = Vector2( 10, 10 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 511.175, 300.346 )
+anchor_mode = 0
 current = true
 __meta__ = {
 "_edit_lock_": true

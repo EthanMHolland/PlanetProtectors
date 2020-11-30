@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/LaserTower.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/background.png" type="Texture" id=2]
@@ -11,48 +11,49 @@
 [ext_resource path="res://assets/UI/green_arrow_hover.png" type="Texture" id=9]
 [ext_resource path="res://assets/UI/blue_arrow_hover.png" type="Texture" id=10]
 [ext_resource path="res://assets/UI/blue_arrow_pressed.png" type="Texture" id=11]
+[ext_resource path="res://src/LevelOverlay.tscn" type="PackedScene" id=12]
 
-[sub_resource type="StyleBoxTexture" id=5]
+[sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 9 )
 region_rect = Rect2( 0, 0, 32, 16 )
 
-[sub_resource type="StyleBoxTexture" id=6]
+[sub_resource type="StyleBoxTexture" id=2]
 texture = ExtResource( 8 )
 region_rect = Rect2( 0, 0, 32, 16 )
 
-[sub_resource type="StyleBoxTexture" id=7]
+[sub_resource type="StyleBoxTexture" id=3]
 texture = ExtResource( 5 )
 region_rect = Rect2( 0, 0, 32, 16 )
 
-[sub_resource type="DynamicFontData" id=3]
+[sub_resource type="DynamicFontData" id=4]
 font_path = "res://assets/Xolonium-Regular.ttf"
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 20
 use_mipmaps = true
 use_filter = true
-font_data = SubResource( 3 )
+font_data = SubResource( 4 )
 
-[sub_resource type="StyleBoxTexture" id=8]
+[sub_resource type="StyleBoxTexture" id=6]
 texture = ExtResource( 10 )
 region_rect = Rect2( 0, 0, 32, 16 )
 
-[sub_resource type="StyleBoxTexture" id=9]
+[sub_resource type="StyleBoxTexture" id=7]
 texture = ExtResource( 11 )
 region_rect = Rect2( 0, 0, 32, 16 )
 
-[sub_resource type="StyleBoxTexture" id=10]
+[sub_resource type="StyleBoxTexture" id=8]
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 32, 16 )
 
-[sub_resource type="DynamicFontData" id=11]
+[sub_resource type="DynamicFontData" id=9]
 font_path = "res://assets/Xolonium-Regular.ttf"
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=10]
 size = 20
 use_mipmaps = true
 use_filter = true
-font_data = SubResource( 11 )
+font_data = SubResource( 9 )
 
 [node name="TitleScreen" type="Node2D"]
 script = ExtResource( 3 )
@@ -60,8 +61,10 @@ script = ExtResource( 3 )
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = 1024.0
+margin_left = -1024.0
+margin_right = 6000.0
 margin_bottom = 600.0
+mouse_filter = 2
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -81,10 +84,10 @@ margin_left = 464.0
 margin_top = 384.0
 margin_right = 564.0
 margin_bottom = 434.0
-custom_styles/hover = SubResource( 5 )
-custom_styles/pressed = SubResource( 6 )
-custom_styles/normal = SubResource( 7 )
-custom_fonts/font = SubResource( 4 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = SubResource( 5 )
 text = "PLAY"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -99,10 +102,10 @@ margin_left = 464.0
 margin_top = 448.0
 margin_right = 564.0
 margin_bottom = 498.0
-custom_styles/hover = SubResource( 8 )
-custom_styles/pressed = SubResource( 9 )
-custom_styles/normal = SubResource( 10 )
-custom_fonts/font = SubResource( 12 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = SubResource( 10 )
 text = "INFO"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -112,6 +115,12 @@ __meta__ = {
 position = Vector2( -1024, 0 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="LevelTween" type="Tween" parent="."]
+
+[node name="LevelOverlay" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1500, 0 )
 [connection signal="button_down" from="PlayButton" to="." method="_on_PlayButton_button_down"]
 [connection signal="button_down" from="InfoButton" to="." method="_on_InfoButton_button_down"]
 [connection signal="title_button_pressed" from="InfoScreen" to="." method="_on_InfoScreen_title_button_pressed"]
+[connection signal="tween_all_completed" from="LevelTween" to="." method="_on_LevelTween_tween_all_completed"]
