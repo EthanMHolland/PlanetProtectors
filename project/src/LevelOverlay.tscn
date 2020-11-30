@@ -19,4 +19,3 @@ position = Vector2( -96, 280 )
 scale = Vector2( 10, 10 )
 
 [node name="Tiles" parent="." instance=ExtResource( 2 )]
-[connection signal="area_entered" from="Planet" to="." method="_on_Planet_area_entered"]
