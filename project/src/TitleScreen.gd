@@ -6,7 +6,6 @@ var speed := 1.5
 var alt_speed := 4
 
 func _ready():
-	$LaserTower/HealthBar.hide()
 	$LaserTower._shots_left = 9999999999
 	$Camera2D.position = Vector2(0, 0)
 	
