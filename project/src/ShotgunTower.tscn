@@ -1,9 +1,8 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://src/ShotgunTower.gd" type="Script" id=1]
 [ext_resource path="res://assets/towers/shotgun_tower/shotgun_tower_1.png" type="Texture" id=2]
 [ext_resource path="res://assets/sounds/laser_shoot.wav" type="AudioStream" id=3]
-[ext_resource path="res://assets/healthbar_green.png" type="Texture" id=4]
 [ext_resource path="res://assets/towers/shotgun_tower/shotgun_tower_3.png" type="Texture" id=5]
 [ext_resource path="res://assets/towers/shotgun_tower/shotgun_tower_2.png" type="Texture" id=6]
 [ext_resource path="res://assets/towers/shotgun_tower/shotgun_tower_5.png" type="Texture" id=7]
@@ -130,7 +129,7 @@ script = ExtResource( 1 )
 position = Vector2( 0, 1.45255 )
 frames = SubResource( 19 )
 animation = "battery5"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -153,19 +152,6 @@ one_shot = true
 [node name="LaserShootSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 volume_db = -40.0
-
-[node name="HealthBar" type="TextureProgress" parent="."]
-margin_left = -4.97276
-margin_top = -5.98975
-margin_right = 195.027
-margin_bottom = 20.0102
-rect_scale = Vector2( 0.05, 0.05 )
-max_value = 3.0
-value = 3.0
-texture_progress = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MidshotTimer" type="Timer" parent="."]
 wait_time = 0.2

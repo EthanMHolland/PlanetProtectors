@@ -4,11 +4,6 @@ signal tower_destroyed
 
 const LASER := preload("Laser.tscn")
 
-var _bar_red := preload("res://assets/healthbar_red.png")
-var _bar_green := preload("res://assets/healthbar_green.png")
-var _bar_yellow := preload("res://assets/healthbar_yellow.png")
-
-var _health : int = 3
 var _shots_left : int = 15
 var _this_shots := 3
 
@@ -18,7 +13,6 @@ func _ready():
 
 
 func _process(_delta):
-	_check_health()
 	_check_shots()
 
 
@@ -58,22 +52,7 @@ func _shoot_third_laser():
 #detects if the tower is hit by an asteroid
 func _on_LaserTower_area_entered(area):
 	if area.is_in_group("Asteroid"):
-		_health -= 1
-
-
-func _check_health():
-	if _health == 3:
-		$HealthBar.value = 3
-	elif _health == 2:
-		$HealthBar.value = 2
-		$HealthBar.texture_progress = _bar_yellow
-	elif _health == 1:
-		$HealthBar.value = 1
-		$HealthBar.texture_progress = _bar_red
-	elif _health == 0:
-		#$HealthBar.value == 0
-		emit_signal("tower_destroyed")
-		queue_free()
+		_shots_left -= 3
 
 
 func _on_MidshotTimer_timeout():
