@@ -202,3 +202,5 @@ func _on_tower_grabbed():
 
 func _on_ColorTimer_timeout():
 	$Wave.add_color_override("font_color", Color(255,255,255))
+	$Money.add_color_override("font_color", Color(255,255,255))
+

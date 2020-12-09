@@ -1,5 +1,6 @@
 extends Area2D
 
+signal insufficient_money
 
 var laser_tower := preload("LaserTower.tscn")
 var shotgun_tower := preload("ShotgunTower.tscn")
@@ -35,6 +36,9 @@ func _place_laser_tower():
 			level._money -= 10
 		else:
 			print("Insufficient money!")
+			emit_signal("insufficient_money")
+			get_parent().get_parent().get_child(14).add_color_override("font_color", Color(255,0,0))
+			get_parent().get_parent().get_child(25).start()
 	else:
 		print("There is a tower here!")
 
@@ -52,6 +56,11 @@ func _place_shotgun_tower():
 			level._money -= 30
 		else:
 			print("Insufficient money!")
+			emit_signal("insufficient_money")
+			get_parent().get_parent().get_child(14).add_color_override("font_color", Color(255,0,0))
+			get_parent().get_parent().get_child(25).start()
+			
+			
 	else:
 		print("There is a tower here!")
 		

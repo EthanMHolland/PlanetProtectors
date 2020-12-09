@@ -146,7 +146,7 @@ script = ExtResource( 2 )
 position = Vector2( 0, 1.59701 )
 frames = SubResource( 22 )
 animation = "battery5"
-frame = 2
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
