@@ -62,7 +62,7 @@ func _wave_start():
 	$NewWaveSound.play()
 	_wave += 1
 	print("Begin wave: " + str(_wave))
-	_new_asteroid_speed -= 10*_wave
+	_new_asteroid_speed = -20*_wave
 # warning-ignore:narrowing_conversion
 # Ignored because we want to only spawn integers of asteroids, so we must round and lose precision
 	_asteroids_this_wave = round(BASE_ASTEROID_AMOUNT + (pow(_wave, 2) * BASE_ASTEROID_AMOUNT/10))
