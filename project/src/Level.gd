@@ -60,6 +60,8 @@ func _process(_delta):
 #Starts the next wave
 func _wave_start():
 	$NewWaveSound.play()
+	$Wave.add_color_override("font_color", Color(255,0,0))
+	$WaveColorTimer.start()
 	_wave += 1
 	print("Begin wave: " + str(_wave))
 	_new_asteroid_speed = -20*_wave
@@ -196,3 +198,7 @@ func _set_asteroids_left_text():
 
 func _on_tower_grabbed():
 	pass
+
+
+func _on_WaveColorTimer_timeout():
+	$Wave.add_color_override("font_color", Color(255,255,255))

@@ -401,6 +401,10 @@ __meta__ = {
 }
 
 [node name="TowerManager" parent="." instance=ExtResource( 11 )]
+
+[node name="WaveColorTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 [connection signal="paused" from="." to="." method="_on_Level_paused"]
 [connection signal="area_entered" from="Planet" to="." method="_on_Planet_area_entered"]
 [connection signal="timeout" from="BetweenWavesTimer" to="." method="_on_BetweenWavesTimer_timeout"]
@@ -410,3 +414,4 @@ __meta__ = {
 [connection signal="button_down" from="PauseMenu/ResumeButton" to="." method="_on_ResumeButton_button_down"]
 [connection signal="button_down" from="PauseMenu/MainMenuButton" to="." method="_on_MainMenuButton_button_down"]
 [connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
+[connection signal="timeout" from="WaveColorTimer" to="." method="_on_WaveColorTimer_timeout"]
