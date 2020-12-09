@@ -36,7 +36,7 @@ func _shoot_laser():
 #detects if the tower is hit by an asteroid
 func _on_LaserTower_area_entered(area):
 	if area.is_in_group("Asteroid"):
-		_shots_left -= 3
+		_shots_left -= 5
 
 
 func _check_shots():
