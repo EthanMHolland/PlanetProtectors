@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/asteroids/asteroid_medium.png" type="Texture" id=1]
 [ext_resource path="res://src/Asteroid.gd" type="Script" id=2]
 [ext_resource path="res://assets/asteroids/asteroid_large.png" type="Texture" id=3]
 [ext_resource path="res://assets/asteroids/asteroid_small.png" type="Texture" id=4]
+[ext_resource path="res://assets/cloud_particle.png" type="Texture" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -43,5 +44,25 @@ animation = "large"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource( 2 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 5
+lifetime = 0.5
+one_shot = true
+speed_scale = 1.26
+explosiveness = 0.1
+randomness = 0.13
+texture = ExtResource( 5 )
+emission_shape = 1
+emission_sphere_radius = 6.0
+direction = Vector2( 0, 0 )
+spread = 60.65
+gravity = Vector2( 0, 0 )
+radial_accel = 8.7
+radial_accel_random = 0.16
+
+[node name="ParticleTimer" type="Timer" parent="."]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
 [connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]
+[connection signal="timeout" from="ParticleTimer" to="." method="_on_ParticleTimer_timeout"]
