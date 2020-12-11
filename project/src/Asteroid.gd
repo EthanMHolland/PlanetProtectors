@@ -1,9 +1,11 @@
 extends KinematicBody2D
 
 signal destroyed
+signal hit
 
 var _speed : int = -50
 var _velocity := Vector2()
+var _health := 3
 
 
 func _process(_delta):
@@ -20,13 +22,26 @@ func _physics_process(_delta):
 #detects when a laser hit the asteroids and deletes the asteroid/laser and emits "destroyed"
 func _on_Hitbox_body_entered(body):
 	if body.is_in_group("Laser"):
-		emit_signal("destroyed")
-		queue_free()
+		emit_signal("hit")
+		_health -= 1
+		_check_health()
 		body.queue_free()
 
 
 #detects when the asteroids hits a tower and deletes the asteroid and emits "destroyed"
 func _on_Hitbox_area_entered(area):
 	if area.is_in_group("Tower"):
+		emit_signal("hit")
+		_health -= 1
+		_check_health()
+
+func _check_health():
+	if _health == 3:
+		$Sprite.play("large")
+	elif _health == 2:
+		$Sprite.play("medium")
+	elif _health == 1:
+		$Sprite.play("small")
+	elif _health <= 0:
 		emit_signal("destroyed")
 		queue_free()

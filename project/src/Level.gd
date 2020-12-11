@@ -93,6 +93,7 @@ func _spawn_asteroid():
 
 #connects the destroyed signal from Asteroid.gd to this script
 	var _ignore := _new_asteroid.connect("destroyed", self, "_on_AsteroidDestroyed")
+	var _ignored := _new_asteroid.connect("hit", self, "_on_AsteroidHit")
 	_new_asteroid._speed = _new_asteroid_speed
 	
 	_asteroids_left_to_spawn -= 1
@@ -124,6 +125,10 @@ func _on_AsteroidDestroyed():
 	_money += 2
 	$Camera2D/ScreenShake._start()
 
+func _on_AsteroidHit():
+	$AsteroidExplodeSound.play()
+	_money += 2
+	$Camera2D/ScreenShake._start()
 
 #if an asteroid hits the planet 5 times then it ends the game
 func _on_Planet_area_entered(area):
