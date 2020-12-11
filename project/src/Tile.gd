@@ -8,6 +8,7 @@ var tower_manager := preload("TowerManager.tscn")
 var _has_tower := false
 var _mouse_overlapping := false
 var _tile_selected : bool
+var _dragging := false
 
 onready var level := get_parent().get_parent()
 
@@ -17,6 +18,8 @@ func _ready():
 	self.add_child(_new_tower_manager)
 	var _ignored = _new_tower_manager.connect("place_laser_tower", self, "_on_place_laser_tower")
 	var _ignored2 = _new_tower_manager.connect("place_shotgun_tower", self, "_on_place_shotgun_tower")
+	var _ignored3 = _new_tower_manager.connect("dragging", self, "_on_dragging")
+	var _ignored4 = _new_tower_manager.connect("not_dragging", self, "_on_not_dragging")
 
 func _process(_delta):
 	pass
@@ -70,9 +73,12 @@ func _on_tower_destroyed():
 	$TowerDestroyedSound.play()
 
 func _on_Tile_mouse_entered():
+	if _dragging == true:
+		$Sprite.play("selected")
 	_mouse_overlapping = true
 
 func _on_Tile_mouse_exited():
+	$Sprite.play("default")
 	_mouse_overlapping = false
 
 func _on_place_laser_tower():
@@ -82,3 +88,9 @@ func _on_place_laser_tower():
 func _on_place_shotgun_tower():
 	if (_mouse_overlapping == true):
 		_place_shotgun_tower()
+
+func _on_dragging():
+	_dragging = true
+	
+func _on_not_dragging():
+	_dragging = false
