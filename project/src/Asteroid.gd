@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+class_name Asteroid
+
 signal destroyed
 signal hit
 
@@ -58,3 +60,10 @@ func _check_health():
 func _on_ParticleTimer_timeout():
 	if _health <= 0:
 		queue_free()
+
+func hit_by_misile():
+	$CPUParticles2D.emitting = true
+	$ParticleTimer.start()
+	emit_signal("hit")
+	_health -= 1
+	_check_health()
