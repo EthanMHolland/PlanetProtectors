@@ -1,7 +1,7 @@
 extends Node2D
 
 signal title_button_pressed
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	_set_default_text()
 
@@ -15,7 +15,6 @@ func _set_default_text():
 
 
 func _on_BackButton_button_down():
-#	var _ignored = get_tree().change_scene("res://src/TitleScreen.tscn")
 	emit_signal("title_button_pressed")
 
 
