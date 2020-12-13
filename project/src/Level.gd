@@ -62,8 +62,6 @@ func _process(_delta):
 		
 	if Input.is_action_just_pressed("pause"):
 		emit_signal("paused")
-	
-	
 
 
 #Starts the next wave
@@ -110,6 +108,7 @@ func _spawn_asteroid():
 	if _asteroids_left_to_spawn > 0:
 		$SpawnerTimer.start()
 
+
 #checks if all asteroids this wave have been destroyed and if so, starts between wave timer
 func _check_asteroids_left():
 	if (_asteroids_left_on_screen == 0 and $BetweenWavesTimer.time_left == 0):
@@ -126,7 +125,7 @@ func _on_BetweenWavesTimer_timeout():
 	$BetweenWavesTimer.stop()
 	_wave_start()
 
-	
+
 func _on_AsteroidDestroyed():
 	$AsteroidExplodeSound.play()
 	_asteroids_destroyed += 1
@@ -135,10 +134,12 @@ func _on_AsteroidDestroyed():
 	_money += 2
 	$Camera2D/ScreenShake._start()
 
+
 func _on_AsteroidHit():
 	$AsteroidExplodeSound.play()
 	_money += 2
 	$Camera2D/ScreenShake._start()
+
 
 #if an asteroid hits the planet 5 times then it ends the game
 func _on_Planet_area_entered(area):
@@ -150,10 +151,10 @@ func _on_Planet_area_entered(area):
 			var _change_scene = get_tree().change_scene("res://src/EndScreen.tscn")
 
 
-
 func _on_IncreaseMoney_timeout():
 	_money += 2
 	$IncreaseMoney.start()
+
 
 func _spawn_shooting_star():
 	# Choose a random location on Path2D.
@@ -206,10 +207,12 @@ func _on_MainMenuButton_button_down():
 func _on_Button_button_down():
 	_on_Level_paused()
 
+
 func _set_asteroids_left_text():
 	if _asteroids_left_on_screen < 0:
 		_asteroids_left_on_screen = 0
 	$AsteroidsLeft.text = "Left: " + str(_asteroids_left_on_screen)
+
 
 func _on_tower_grabbed():
 	pass

@@ -21,8 +21,6 @@ func _process(_delta):
 	_check_shots()
 
 
-
-
 #shoots laser every 3 seconds
 func _on_ShootTimer_timeout():
 	_shoot_laser()
@@ -59,7 +57,7 @@ func _check_shots():
 		$AnimatedSprite.play("battery0")
 		emit_signal("tower_destroyed")
 		queue_free()
-	
+
 
 func _on_stop_shooting():
 	print("stopped shooting")

@@ -13,6 +13,7 @@ var _dragging := false
 
 onready var level := get_parent().get_parent()
 
+
 func _ready():
 	var _new_tower_manager := tower_manager.instance()
 	_new_tower_manager.position = Vector2(9999999,999999)
@@ -23,9 +24,10 @@ func _ready():
 	var _ignored4 = _new_tower_manager.connect("not_dragging", self, "_on_not_dragging")
 	var _ignored5 = _new_tower_manager.connect("place_missile", self, "_on_place_missile")
 
+
 func _process(_delta):
 	pass
-	
+
 
 func _place_laser_tower():
 	if !_has_tower:
@@ -46,6 +48,7 @@ func _place_laser_tower():
 			get_parent().get_parent().get_child(25).start()
 	else:
 		print("There is a tower here!")
+
 
 func _place_shotgun_tower():
 	if !_has_tower:
@@ -68,38 +71,46 @@ func _place_shotgun_tower():
 			
 	else:
 		print("There is a tower here!")
-		
-		
+
+
 func _on_tower_destroyed():
 	_has_tower = false
 	$TowerDestroyedSound.play()
+
 
 func _on_Tile_mouse_entered():
 	if _dragging == true:
 		$Sprite.play("selected")
 	_mouse_overlapping = true
 
+
 func _on_Tile_mouse_exited():
 	$Sprite.play("default")
 	_mouse_overlapping = false
+
 
 func _on_place_laser_tower():
 	if (_mouse_overlapping == true):
 		_place_laser_tower()
 
+
 func _on_place_shotgun_tower():
 	if (_mouse_overlapping == true):
 		_place_shotgun_tower()
+
 
 func _on_place_missile():
 	if (_mouse_overlapping == true):
 		_place_missile()
 
+
 func _on_dragging():
 	_dragging = true
-	
+
+
 func _on_not_dragging():
 	_dragging = false
+
 
 func _place_missile():
 	if !_has_tower:
@@ -120,6 +131,7 @@ func _place_missile():
 			get_parent().get_parent().get_child(25).start()
 	else:
 		print("There is a tower here!")
+
 
 func _on_missile_destroyed():
 	_has_tower = false

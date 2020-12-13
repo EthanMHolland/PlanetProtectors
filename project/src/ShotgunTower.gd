@@ -7,6 +7,7 @@ const LASER := preload("Laser.tscn")
 var _shots_left : int = 15
 var _this_shots := 3
 
+
 func _ready():
 #shoots a laser the moment a tower is placed
 	_shoot_laser()
@@ -35,6 +36,7 @@ func _shoot_laser():
 	$ShootTimer.start()
 	$MidshotTimer.start()
 
+
 func _shoot_second_laser():
 	$LaserShootSound.play()
 	var _new_laser2 = LASER.instance()
@@ -42,7 +44,8 @@ func _shoot_second_laser():
 	_new_laser2.global_position = $Position2D2.global_position
 	_this_shots -= 1
 	$MidshotTimer.start()
-	
+
+
 func _shoot_third_laser():
 	$LaserShootSound.play()
 	var _new_laser3 = LASER.instance()
@@ -50,7 +53,8 @@ func _shoot_third_laser():
 	_new_laser3.global_position = $Position2D3.global_position
 	_this_shots -= 1
 	$MidshotTimer.start()
-	
+
+
 #detects if the tower is hit by an asteroid
 func _on_LaserTower_area_entered(area):
 	if area.is_in_group("Asteroid"):
@@ -64,6 +68,7 @@ func _on_MidshotTimer_timeout():
 		_shoot_third_laser()
 	elif _this_shots == 0:
 		_this_shots = 3
+
 
 func _check_shots():
 	if _shots_left >= 13:
@@ -80,6 +85,7 @@ func _check_shots():
 		$AnimatedSprite.play("battery0")
 		emit_signal("tower_destroyed")
 		queue_free()
+
 
 func _on_stop_shooting():
 	print("stopped shooting")

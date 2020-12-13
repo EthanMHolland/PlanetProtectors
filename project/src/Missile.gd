@@ -13,12 +13,12 @@ onready var ScreenShake = get_parent().get_parent().get_parent().get_parent().ge
 func _ready():
 	pass # Replace with function body.
 
+
 func _physics_process(_delta):
 #sets the direction of the asteroids
 	if _detonated == false:
 		_velocity.x = _speed
 		_velocity = move_and_slide(_velocity, Vector2(1, 0))
-
 
 
 func _on_Hitbox_body_entered(body):
@@ -35,8 +35,6 @@ func _detonate():
 	$Hitbox.set_deferred("disabled", true)
 	$AnimatedSprite.hide()
 	ScreenShake._start()
-	# ADD kill all asteroids in AreaDamage collisionshape
-#	$AreaDamage/CollisionShape2D.disabled = false
 	$AreaDamage.scale.x = 1
 	$AreaDamage.scale.y = 1
 

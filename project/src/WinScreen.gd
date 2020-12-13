@@ -35,8 +35,8 @@ func _randomize_firework_time():
 	$ParticleTimer2.start()
 	$ParticleTimer3.start()
 	$ParticleTimer4.start()
-	
-	
+
+
 func _randomize_firework_size():
 	rng.randomize()
 	var randsize1 = rng.randf_range(1, 2.5)
@@ -47,8 +47,6 @@ func _randomize_firework_size():
 	$FireworksParticles2.scale = Vector2(randsize2, randsize2)
 	$FireworksParticles3.scale = Vector2(randsize3, randsize3)
 	$FireworksParticles4.scale = Vector2(randsize4, randsize4)
-
-
 
 
 func _on_ParticleTimer_timeout():

@@ -28,10 +28,12 @@ var _mouse_inside_laser : bool
 var _mouse_inside_shotgun : bool
 var _mouse_inside_missile : bool
 
+
 func _process(_delta):
 	_select_laser_tower()
 	_select_shotgun_tower()
 	_select_missile()
+
 
 func _select_laser_tower():
 	if Input.is_action_pressed("drag_tower"):
@@ -50,11 +52,14 @@ func _select_laser_tower():
 			$CanvasLayer/LaserTower/Sprite.position = Vector2(35, 558)
 			emit_signal("place_laser_tower")
 
+
 func _on_LaserTower_mouse_entered():
 	_mouse_inside_laser = true
 
+
 func _on_LaserTower_mouse_exited():
 	_mouse_inside_laser = false
+
 
 func _select_shotgun_tower():
 	if Input.is_action_pressed("drag_tower"):
@@ -72,7 +77,7 @@ func _select_shotgun_tower():
 			_dragging_shotgun_tower_last = _dragging_shotgun_tower
 			$CanvasLayer/ShotgunTower/AnimatedSprite.position = Vector2(85, 558)
 			emit_signal("place_shotgun_tower")
-			
+
 
 func _on_ShotgunTower_mouse_entered():
 	_mouse_inside_shotgun = true
@@ -80,6 +85,7 @@ func _on_ShotgunTower_mouse_entered():
 
 func _on_ShotgunTower_mouse_exited():
 	_mouse_inside_shotgun = false
+
 
 func _select_missile():
 	if Input.is_action_pressed("drag_tower"):
