@@ -8,12 +8,10 @@ https://bsu-cs315.github.io/FP-PlanetProtectors/
 Asteroids are heading for Earth! Use the Planet Protectors space towers to destroy them. Beat wave 15 to win!
 
 Use the "Left Mouse Button" to place the towers in the squares prvoided.
-Each tower only has enough battery for 15 shots before they die and float away.
-Each tower can only take 3 hits from asteroids before they are destroyed.
-Cheats: "9" to spawn more shooting stars, "0" to give yourself more money, "-" to stop the asteroids from spawning that wave, and "=" to skip to the next wave.
+More information on how to play in the "Info" screen.
 
 ## Reflection
-This iteration was a little less exciting than the first one. Just for the fact that it was mostly spent adding in a lot of background mechanics and bug fixes. There were a lot of fun parts though. For Ethan this was the creation of the shooting stars. They were his favorite part that he created. He taught himself how to use the particle effects to make the stars look nicer. He also enjoyed adding in sound effects and music, especially the asteroid explosion sounds. Which were just him sighing into the mic and adding effects to it. For Logan, he found the cheat codes a lot of fun to make. They reminded him of using cheats codes in older games like GTA San Andreas. Something that we are still struggling with is using git as a team. This is due to the fact that if we both are doing something with the project and one of us pushes, it gives errors for the other person trying to pull. We belive that it may be an issue that branches will solve so we will be looking more into it for the next iteration. 
+This iteration ended up being a lot more fun than the second iteration. This is due to the fact we were able to add a lot more features we thought were cool rather than doing behind the scene stuff. Logan's personal favorite feature added is the missle. Ethan did an amazing job creating the sprites and animation for it and Logan enjoyed figuring out how to program its area of effect feature. The one thing that Logan did not quite enjoy and has learned a lot from is trying to figure out balancing. While the game is now playable and can be won, he is not completely happy with the balancing.  
 
 ## Self-Evaluation
 - [X] D-1: The repository link is submitted to Canvas before the project deadline.
@@ -36,7 +34,7 @@ This iteration was a little less exciting than the first one. Just for the fact 
 - [ ] ⭐ Include a dynamic (non-static) camera
 - [ ] ⭐ Incorporate parallax background scrolling
 - [ ] ⭐ Use paper doll animations
-- [ ] ⭐ Incorporate smooth transitions between title, game, and end states, rather than jumping between states via <code>change_scene</code>
+- [X] ⭐ Incorporate smooth transitions between title, game, and end states, rather than jumping between states via <code>change_scene</code>
 - [X] ⭐ Support both touch and mouse/keyboard input in the Web build
 - [X] ⭐ Allow the user to control the volume of music and sound effects independently.
 - [ ] ⭐ Incorporate juiciness and document it in the <code>README.md</code>
