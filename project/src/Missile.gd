@@ -36,6 +36,9 @@ func _detonate():
 	$AnimatedSprite.hide()
 	ScreenShake._start()
 	# ADD kill all asteroids in AreaDamage collisionshape
+#	$AreaDamage/CollisionShape2D.disabled = false
+	$AreaDamage.scale.x = 1
+	$AreaDamage.scale.y = 1
 
 
 func _on_ParticleTimer_timeout():
@@ -46,5 +49,3 @@ func _on_ParticleTimer_timeout():
 func _on_Hitbox_area_entered(area):
 	if area.is_in_group("Crosshair"):
 		_detonate()
-
-

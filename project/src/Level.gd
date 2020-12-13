@@ -3,7 +3,7 @@ extends Node2D
 signal paused
 signal sfxvolume
 
-const BASE_ASTEROID_AMOUNT : int = 3
+const BASE_ASTEROID_AMOUNT : int = 2
 
 var _asteroids_this_wave : int
 var _asteroids_left_to_spawn : int
@@ -64,10 +64,10 @@ func _wave_start():
 	$ColorTimer.start()
 	_wave += 1
 	print("Begin wave: " + str(_wave))
-	_new_asteroid_speed = -20*_wave
+	_new_asteroid_speed = -5*_wave
 # warning-ignore:narrowing_conversion
 # Ignored because we want to only spawn integers of asteroids, so we must round and lose precision
-	_asteroids_this_wave = round(BASE_ASTEROID_AMOUNT + (pow(_wave, 2) * BASE_ASTEROID_AMOUNT/10))
+	_asteroids_this_wave = round(BASE_ASTEROID_AMOUNT + _wave)
 	_asteroids_left_on_screen = _asteroids_this_wave
 	_asteroids_left_to_spawn = _asteroids_this_wave
 	$SpawnerTimer.start()

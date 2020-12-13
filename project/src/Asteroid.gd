@@ -35,9 +35,17 @@ func _on_Hitbox_body_entered(body):
 		body.queue_free()
 
 
+
 #detects when the asteroids hits a tower and deletes the asteroid and emits "destroyed"
 func _on_Hitbox_area_entered(area):
 	if area.is_in_group("Tower"):
+		$CPUParticles2D.emitting = true
+		$ParticleTimer.start()
+		emit_signal("hit")
+		_health -= 3
+		_check_health()
+		
+	if area.is_in_group("Missle"):
 		$CPUParticles2D.emitting = true
 		$ParticleTimer.start()
 		emit_signal("hit")
