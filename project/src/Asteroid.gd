@@ -42,7 +42,7 @@ func _on_Hitbox_area_entered(area):
 		$CPUParticles2D.emitting = true
 		$ParticleTimer.start()
 		emit_signal("hit")
-		_health -= 1
+		_health -= 3
 		_check_health()
 		
 	if area.is_in_group("Missle"):
