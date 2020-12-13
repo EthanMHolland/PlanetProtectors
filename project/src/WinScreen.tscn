@@ -28,12 +28,12 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 512, 288 )
+position = Vector2( 512, 280 )
 scale = Vector2( 10, 10 )
 texture = ExtResource( 3 )
 
-[node name="AnimatedSprite" type="Sprite" parent="."]
-position = Vector2( 664, 288 )
+[node name="MedalSprite" type="Sprite" parent="."]
+position = Vector2( 664, 280 )
 scale = Vector2( 5, 5 )
 texture = ExtResource( 5 )
 

@@ -407,6 +407,8 @@ __meta__ = {
 [node name="ColorTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="Tween" type="Tween" parent="."]
 [connection signal="paused" from="." to="." method="_on_Level_paused"]
 [connection signal="area_entered" from="Planet" to="." method="_on_Planet_area_entered"]
 [connection signal="timeout" from="BetweenWavesTimer" to="." method="_on_BetweenWavesTimer_timeout"]
@@ -417,3 +419,4 @@ one_shot = true
 [connection signal="button_down" from="PauseMenu/MainMenuButton" to="." method="_on_MainMenuButton_button_down"]
 [connection signal="button_down" from="Button" to="." method="_on_Button_button_down"]
 [connection signal="timeout" from="ColorTimer" to="." method="_on_ColorTimer_timeout"]
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]

@@ -14,6 +14,7 @@ var _total_asteroids_destroyed : int
 var _money : int = 10
 var _new_asteroid_speed : int = -50
 var _earth_health : int = 4
+var _win := false
 
 var _rng := RandomNumberGenerator.new()
 var _asteroid := preload("Asteroid.tscn")
@@ -36,7 +37,14 @@ func _process(_delta):
 	$Wave.text = "Wave: " + str(_wave)
 	
 	if _wave >= 16:
-		var _change_scene := get_tree().change_scene("res://src/WinScreen.tscn")
+		if _win == false:
+			var start_point = Vector2(0, 0)
+			var end_point = Vector2(-600,0)
+			var speed = 1
+			$Tween.interpolate_property($Camera2D, "position", start_point, end_point, speed, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+			$Tween.start()
+			_win = true
+		
 
 	if Input.is_action_just_pressed("add_funds"):
 		_money += 10
@@ -209,3 +217,7 @@ func _on_ColorTimer_timeout():
 	$Wave.add_color_override("font_color", Color(255,255,255))
 	$Money.add_color_override("font_color", Color(255,255,255))
 
+
+
+func _on_Tween_tween_all_completed():
+	var _change_scene := get_tree().change_scene("res://src/WinScreen.tscn")
