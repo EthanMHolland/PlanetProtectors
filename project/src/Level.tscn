@@ -214,7 +214,7 @@ position = Vector2( 624, 416 )
 position = Vector2( 720, 416 )
 
 [node name="BetweenWavesTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 6.0
 
 [node name="SpawnerTimer" type="Timer" parent="."]
 wait_time = 0.5

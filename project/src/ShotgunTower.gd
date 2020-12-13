@@ -10,6 +10,8 @@ var _this_shots := 3
 func _ready():
 #shoots a laser the moment a tower is placed
 	_shoot_laser()
+	var level = get_tree().get_root().find_node("Level", true, false)
+	level.connect("stop_shooting", self, "_on_stop_shooting")
 
 
 func _process(_delta):
@@ -78,3 +80,12 @@ func _check_shots():
 		$AnimatedSprite.play("battery0")
 		emit_signal("tower_destroyed")
 		queue_free()
+
+func _on_stop_shooting():
+	print("stopped shooting")
+	$ShootTimer.stop()
+	$StopShooting.start()
+
+
+func _on_StopShooting_timeout():
+	$ShootTimer.start()

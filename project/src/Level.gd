@@ -2,6 +2,7 @@ extends Node2D
 
 signal paused
 signal sfxvolume
+signal stop_shooting
 
 const BASE_ASTEROID_AMOUNT : int = 2
 
@@ -113,6 +114,7 @@ func _spawn_asteroid():
 func _check_asteroids_left():
 	if (_asteroids_left_on_screen == 0 and $BetweenWavesTimer.time_left == 0):
 		_asteroids_destroyed = 0
+		emit_signal("stop_shooting")
 		$BetweenWavesTimer.start()
 
 
