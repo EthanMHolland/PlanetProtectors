@@ -51,7 +51,7 @@ script = ExtResource( 2 )
 position = Vector2( 0, 1.08952 )
 frames = SubResource( 6 )
 animation = "idling"
-frame = 3
+frame = 1
 playing = true
 
 [node name="Hitbox" type="Area2D" parent="."]
