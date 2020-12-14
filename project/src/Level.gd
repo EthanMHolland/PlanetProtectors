@@ -111,7 +111,7 @@ func _spawn_asteroid():
 
 #checks if all asteroids this wave have been destroyed and if so, starts between wave timer
 func _check_asteroids_left():
-	if (_asteroids_left_on_screen == 0 and $BetweenWavesTimer.time_left == 0):
+	if (_asteroids_left_on_screen == 0 and _asteroids_left_to_spawn == 0 and $BetweenWavesTimer.time_left == 0):
 		_asteroids_destroyed = 0
 		emit_signal("stop_shooting")
 		$BetweenWavesTimer.start()

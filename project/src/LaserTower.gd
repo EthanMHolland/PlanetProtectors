@@ -17,7 +17,6 @@ func _ready():
 
 func _process(_delta):
 	_check_shots()
-#	print($ShootTimer.time_left)
 
 
 #shoots laser every 3 seconds
@@ -59,11 +58,9 @@ func _check_shots():
 
 
 func _on_stop_shooting():
-	print("stopped shooting")
 	$ShootTimer.stop()
 	$StopShooting.start()
 
 
 func _on_StopShooting_timeout():
 	$ShootTimer.start()
-	print("Start shooting")

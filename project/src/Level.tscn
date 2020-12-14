@@ -217,7 +217,6 @@ position = Vector2( 720, 416 )
 wait_time = 6.0
 
 [node name="SpawnerTimer" type="Timer" parent="."]
-wait_time = 0.5
 one_shot = true
 
 [node name="SpawnPoint1" type="Position2D" parent="."]

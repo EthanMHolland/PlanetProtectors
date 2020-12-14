@@ -8,7 +8,8 @@ signal hit
 var _speed : int = -50
 var _velocity := Vector2()
 var _health := 3
-var _stunned = false
+var _stunned := false
+var _destroyed := false
 
 
 func _process(_delta):
@@ -62,9 +63,11 @@ func _check_health():
 		$Sprite.play("medium")
 	elif _health == 1:
 		$Sprite.play("small")
-	elif _health <= 0:
+	elif _health <= 0 and !_destroyed:
+		_destroyed = true
 		emit_signal("destroyed")
 		$Hitbox.set_deferred("disabled", true)
+		$Hitbox/CollisionShape2D.set_deferred("disabled", true)
 		$Sprite.hide()
 
 
