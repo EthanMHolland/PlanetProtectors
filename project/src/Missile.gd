@@ -29,6 +29,7 @@ func _on_Hitbox_body_entered(body):
 func _detonate():
 	_detonated = true
 	emit_signal("detonated")
+	$CPUParticles2D2.emitting = false
 	$CPUParticles2D.emitting = true
 	$ParticleTimer.start()
 	$ExplodeSound.play()
