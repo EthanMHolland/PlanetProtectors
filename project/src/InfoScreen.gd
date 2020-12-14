@@ -19,7 +19,7 @@ func _on_BackButton_button_down():
 
 
 func _on_Asteroid_mouse_entered():
-	$InfoText.text = "Asteroid\n\n- Can take 1 hit from a Laser or Tower before being destroyed\n- Speed increases with wave count"
+	$InfoText.text = "Asteroid\n\n- Can take 3 hits from a Laser before being destroyed\n- Speed increases with wave count"
 	
 
 func _on_LaserTower_mouse_exited():
@@ -31,12 +31,11 @@ func _on_Asteroid_mouse_exited():
 
 
 func _on_Cheats_mouse_entered():
-	$InfoText.text = "Cheats - Press button to activate\n\n\"9\" - Spawn Shooting Star\n\"0\" - Add $10\n\"-\" - Stop Spawning Asteroids\n\"+\" - Increase Wave"
+	$InfoText.text = "Cheats - Press key to activate\n\n\"9\" - Spawn Shooting Star\n\"0\" - Add $10\n\"-\" - Stop Spawning Asteroids\n\"+\" - Increase Wave"
 
 
 func _on_Cheats_mouse_exited():
 	_set_default_text()
-
 
 
 func _on_ShootingStar_mouse_entered():
@@ -52,4 +51,12 @@ func _on_ShotgunTower_mouse_entered():
 
 
 func _on_ShotgunTower_mouse_exited():
+	_set_default_text()
+
+
+func _on_Missile_mouse_entered():
+	$InfoText.text = "Missile\n\n- Drag and drop the crosshair into an open tile to launch a missile and destroy all asteroids in a 3x3 area!\n- Cost $40 per use"
+
+
+func _on_Missile_mouse_exited():
 	_set_default_text()

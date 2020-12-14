@@ -7,11 +7,11 @@ https://bsu-cs315.github.io/FP-PlanetProtectors/
 # Instructions
 Asteroids are heading for Earth! Use the Planet Protectors space towers to destroy them. Beat wave 15 to win!
 
-Use the "Left Mouse Button" to place the towers in the squares prvoided.
+Drag and Drop towers from the lower left of the screen into a tile to defend!
 More information on how to play in the "Info" screen.
 
 ## Reflection
-This iteration ended up being a lot more fun than the second iteration. This is due to the fact we were able to add a lot more features we thought were cool rather than doing behind the scene stuff. Logan's personal favorite feature added is the missle. Ethan did an amazing job creating the sprites and animation for it and Logan enjoyed figuring out how to program its area of effect feature. The one thing that Logan did not quite enjoy and has learned a lot from is trying to figure out balancing. While the game is now playable and can be won, he is not completely happy with the balancing.  
+This iteration ended up being a lot more fun than the second iteration. This is due to the fact we were able to add a lot more features we thought were cool rather than doing behind the scene stuff. Logan's personal favorite feature added is the missle. Ethan's favorite thing added was the improved win screen. Who doesn't love fireworks? Ethan did an amazing job creating the sprites and animation for it. He did have quite the trouble making it look like it was spinning, but is happy with how it turned out. Logan enjoyed figuring out how to program its area of effect feature. The one thing that Logan did not quite enjoy and has learned a lot from is trying to figure out balancing. While the game is now playable and can be won, he is not completely happy with the balancing and would improve on it in a future hypothetical iteration. Also in this hypothetical 4th iteration we would add smooth transitions between all scene changes, more towers, and other minor polishing we missed in this iteration.
 
 ## Self-Evaluation
 - [X] D-1: The repository link is submitted to Canvas before the project deadline.
@@ -41,7 +41,7 @@ This iteration ended up being a lot more fun than the second iteration. This is 
 - [ ] ⭐ Incorporate another kind of juiciness and document it in the <code>README.md</code>
 - [X] ⭐ Use particle effects
 - [ ] ⭐ Use different layers and masks to manage collisions and document this in the <code>README.md</code>
-- [ ] ⭐ Incorporate pop into your HUD or title screen using <code>Tween</code> or <code>AnimationPlayer</code>
+- [X] ⭐ Incorporate pop into your HUD or title screen using <code>Tween</code> or <code>AnimationPlayer</code>
 - [ ] ⭐ Include an AI-controlled characters
 - [ ] ⭐ Include an AI-controlled character controlled with a different AI
 - [X] ⭐ Add a pause menu that includes, at minimum, the ability to resume or return to the main menu
