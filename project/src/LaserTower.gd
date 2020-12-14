@@ -11,14 +11,13 @@ func _ready():
 #shoots a laser the moment a tower is placed
 	_shoot_laser()
 
-#NEED TO CONNECT THE VARIABLE TO THE "LEVEL" SCENE
-#	var level = get_tree().get_root().find_node("Level", true, false)
-#	print(level)
-#	level.connect("stop_shooting", self, "_on_stop_shooting")
+	var level = get_tree().get_root().find_node("Level", true, false)
+	level.connect("stop_shooting", self, "_on_stop_shooting")
 
 
 func _process(_delta):
 	_check_shots()
+#	print($ShootTimer.time_left)
 
 
 #shoots laser every 3 seconds
@@ -67,3 +66,4 @@ func _on_stop_shooting():
 
 func _on_StopShooting_timeout():
 	$ShootTimer.start()
+	print("Start shooting")

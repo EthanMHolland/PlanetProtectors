@@ -103,6 +103,7 @@ __meta__ = {
 [node name="LaserTower" parent="." instance=ExtResource( 1 )]
 position = Vector2( 300, 260 )
 scale = Vector2( 10, 10 )
+script = null
 
 [node name="InfoButton" type="Button" parent="."]
 margin_left = 464.0

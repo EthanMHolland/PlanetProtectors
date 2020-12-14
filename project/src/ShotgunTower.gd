@@ -12,6 +12,9 @@ func _ready():
 #shoots a laser the moment a tower is placed
 	_shoot_laser()
 	var level = get_tree().get_root().find_node("Level", true, false)
+#	print(get_tree())
+#	print(get_tree().get_root())
+#	print(level)
 	level.connect("stop_shooting", self, "_on_stop_shooting")
 
 
