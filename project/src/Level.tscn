@@ -275,15 +275,15 @@ __meta__ = {
 [node name="IncreaseMoney" type="Timer" parent="."]
 wait_time = 2.0
 
-[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
 volume_db = -10.0
 
-[node name="AsteroidExplodeSound" type="AudioStreamPlayer2D" parent="."]
+[node name="AsteroidExplodeSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 volume_db = -10.0
 
-[node name="NewWaveSound" type="AudioStreamPlayer2D" parent="."]
+[node name="NewWaveSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 volume_db = -15.0
 
