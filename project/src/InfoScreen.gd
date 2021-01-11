@@ -15,6 +15,7 @@ func _set_default_text():
 
 
 func _on_BackButton_button_down():
+	$ButtonClickSound.play()
 	emit_signal("title_button_pressed")
 
 

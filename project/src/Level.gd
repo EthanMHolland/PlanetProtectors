@@ -191,6 +191,7 @@ func _on_Level_paused():
 
 
 func _on_ResumeButton_button_down():
+	$ButtonClickSound.play()
 	$PauseMenu.hide()
 	$BackgroundMusic.volume_db = $PauseMenu/MusicSlider.value
 	$AsteroidExplodeSound.volume_db = $PauseMenu/SFXSlider.value
@@ -201,6 +202,7 @@ func _on_ResumeButton_button_down():
 
 func _on_MainMenuButton_button_down():
 	get_tree().paused = false
+	$ButtonClickSound.play()
 	var _change_scene := get_tree().change_scene("res://src/TitleScreen.tscn")
 
 

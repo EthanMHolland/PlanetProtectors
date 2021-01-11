@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/background.png" type="Texture" id=1]
 [ext_resource path="res://src/Tile.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://assets/GreyBackground.jpg" type="Texture" id=10]
 [ext_resource path="res://src/TowerManager.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/ScreenShake.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/sounds/button_click.wav" type="AudioStream" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -407,6 +408,10 @@ wait_time = 0.5
 one_shot = true
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="ButtonClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -15.0
 [connection signal="paused" from="." to="." method="_on_Level_paused"]
 [connection signal="area_entered" from="Planet" to="." method="_on_Planet_area_entered"]
 [connection signal="timeout" from="BetweenWavesTimer" to="." method="_on_BetweenWavesTimer_timeout"]

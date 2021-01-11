@@ -7,10 +7,12 @@ func _ready():
 	_randomize_firework_time()
 
 func _on_PlayAgain_button_down():
+	$ButtonClickSound.play()
 	var _change_scene = get_tree().change_scene("res://src/Level.tscn")
 
 
 func _on_MainMenu_button_down():
+	$ButtonClickSound.play()
 	var _change_scene = get_tree().change_scene("res://src/TitleScreen.tscn")
 
 
