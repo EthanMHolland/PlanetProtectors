@@ -71,7 +71,6 @@ __meta__ = {
 
 [node name="Planet" parent="." instance=ExtResource( 3 )]
 position = Vector2( -96, 280 )
-scale = Vector2( 10, 10 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

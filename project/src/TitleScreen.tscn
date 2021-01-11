@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://src/LaserTower.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/background.png" type="Texture" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://assets/UI/blue_arrow_hover.png" type="Texture" id=10]
 [ext_resource path="res://assets/UI/blue_arrow_pressed.png" type="Texture" id=11]
 [ext_resource path="res://src/LevelOverlay.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/WinScreen.tscn" type="PackedScene" id=13]
+[ext_resource path="res://assets/sounds/button_click.wav" type="AudioStream" id=14]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 9 )
@@ -78,7 +80,6 @@ __meta__ = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 6.10352e-05, 0 )
 anchor_mode = 0
 current = true
 
@@ -141,6 +142,13 @@ text = "Created By: Ethan Holland and Logan Summers"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="WinScreen" parent="." instance=ExtResource( 13 )]
+visible = false
+position = Vector2( 892, 0 )
+
+[node name="ButtonClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
 [connection signal="button_down" from="PlayButton" to="." method="_on_PlayButton_button_down"]
 [connection signal="button_down" from="InfoButton" to="." method="_on_InfoButton_button_down"]
 [connection signal="title_button_pressed" from="InfoScreen" to="." method="_on_InfoScreen_title_button_pressed"]

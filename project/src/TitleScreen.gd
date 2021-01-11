@@ -8,16 +8,20 @@ var speed := 1.5
 var alt_speed := 4
 
 
+
 func _ready():
 #	$LaserTower._shots_left = 9999999999
 	$Camera2D.position = Vector2(0, 0)
+	
 
 
 func _on_PlayButton_button_down():
+	$ButtonClickSound.play()
 	_move_camera_to_Level()
 
 
 func _on_InfoButton_button_down():
+	$ButtonClickSound.play()
 	_move_camera_to_InfoScreen()
 
 

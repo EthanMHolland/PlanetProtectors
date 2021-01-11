@@ -227,7 +227,7 @@ __meta__ = {
 position = Vector2( 135, 109 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 11 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LaserTower"]

@@ -21,8 +21,8 @@ func _physics_process(_delta):
 		_velocity = move_and_slide(_velocity, Vector2(1, 0))
 
 
-func _on_Hitbox_body_entered(body):
-	if body.is_in_group("Crosshair"):
+func _on_Hitbox_body_entered(_body):
+	if _body.is_in_group("Crosshair"):
 		_detonate()
 
 
@@ -45,6 +45,6 @@ func _on_ParticleTimer_timeout():
 	queue_free()
 
 
-func _on_Hitbox_area_entered(area):
-	if area.is_in_group("Crosshair"):
+func _on_Hitbox_area_entered(_area):
+	if _area.is_in_group("Crosshair"):
 		_detonate()
