@@ -327,6 +327,8 @@ curve = SubResource( 4 )
 [node name="ShootingStarTimer" type="Timer" parent="."]
 wait_time = 10.0
 
+[node name="TowerManager" parent="." instance=ExtResource( 11 )]
+
 [node name="PauseMenu" type="Popup" parent="."]
 pause_mode = 2
 visible = true
@@ -448,8 +450,6 @@ text = "PAUSE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="TowerManager" parent="." instance=ExtResource( 11 )]
 
 [node name="ColorTimer" type="Timer" parent="."]
 wait_time = 0.5
