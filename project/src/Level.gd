@@ -32,6 +32,7 @@ func _ready():
 
 #checks if all asteroids have been spawned and updates HUD info
 func _process(_delta):
+	_update_earth_sprite()
 	_check_asteroids_left()
 	_set_asteroids_left_text()
 	$Money.text = "$" + str(_money)
@@ -216,8 +217,6 @@ func _set_asteroids_left_text():
 	$AsteroidsLeft.text = "Left: " + str(_asteroids_left_on_screen)
 
 
-func _on_tower_grabbed():
-	pass
 
 
 func _on_ColorTimer_timeout():
@@ -228,3 +227,16 @@ func _on_ColorTimer_timeout():
 
 func _on_Tween_tween_all_completed():
 	var _change_scene := get_tree().change_scene("res://src/WinScreen.tscn")
+
+
+func _update_earth_sprite():
+	if _earth_health == 4:
+		$WreckedPlanet.modulate.a = 0
+	elif _earth_health == 3:
+		$WreckedPlanet.modulate.a = 0.1
+	elif _earth_health == 2:
+		$WreckedPlanet.modulate.a = 0.25
+	elif _earth_health == 1:
+		$WreckedPlanet.modulate.a = 0.35
+	elif _earth_health == 0:
+		$WreckedPlanet.modulate.a = 0.5
