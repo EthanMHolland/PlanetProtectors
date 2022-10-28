@@ -2,7 +2,7 @@
 Creators: Ethan Holland and Logan Summers
 
 Play here!
-https://bsu-cs315.github.io/FP-PlanetProtectors/
+https://ethanmholland.github.io/PlanetProtectors/
 
 # Instructions
 Asteroids are heading for Earth! Use the Planet Protectors space towers to destroy them. Beat wave 15 to win!
